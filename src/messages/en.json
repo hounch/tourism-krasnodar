@@ -1,0 +1,76 @@
+{
+	"common": {
+		"readMore": "Read More"
+	},
+	"navigation": {
+		"home": "Home",
+		"attractions": "Attractions",
+		"routes": "Routes",
+		"events": "Events",
+		"contacts": "Contacts"
+	},
+	"hero": {
+		"title": "Discover",
+		"titleHighlight": "Krasnodar",
+		"description": "The southern capital of Russia with rich history, delicious cuisine and hospitable residents. The perfect place to travel at any time of the year.",
+		"chooseTour": "Choose Tour",
+		"learnMore": "Learn More"
+	},
+	"attractions": {
+		"title": "Popular Attractions",
+		"catherine": {
+			"title": "Monument to Catherine the Great",
+			"description": "One of the symbols of the city, a restored historical monument in the center of Krasnodar.",
+			"readMore": "Read More →"
+		},
+		"theater": {
+			"title": "Theater Square",
+			"description": "The central square of the city with a singing fountain and beautiful architecture.",
+			"readMore": "Read More →"
+		},
+		"redStreet": {
+			"title": "Red Street",
+			"description": "The main pedestrian street of the city with many shops, cafes and historic buildings.",
+			"readMore": "Read More →"
+		}
+	},
+	"about": {
+		"title": "Why visit Krasnodar?",
+		"description": "Krasnodar is a modern city with rich history that combines southern hospitality and dynamic development. Here you will find beautiful parks, interesting museums, delicious cuisine and many opportunities for recreation.",
+		"features": {
+			"climate": "Favorable climate with more than 200 sunny days a year",
+			"culture": "Rich cultural program and events",
+			"cuisine": "Unique Kuban cuisine and hospitality"
+		}
+	},
+	"events": {
+		"title": "Upcoming Events",
+		"foodFestival": {
+			"date": "October 15",
+			"title": "Kuban Cuisine Festival",
+			"description": "Try traditional Kuban cuisine dishes from the best chefs in the region.",
+			"readMore": "Read More →"
+		},
+		"cityTour": {
+			"date": "October 22",
+			"title": "Historical Center Tour",
+			"description": "Walking tour of the most interesting places in the old city.",
+			"readMore": "Read More →"
+		},
+		"museumNight": {
+			"date": "October 29",
+			"title": "Museum Night in Krasnodar",
+			"description": "Special program with free museum visits until midnight.",
+			"readMore": "Read More →"
+		}
+	},
+	"newsletter": {
+		"title": "Be the first to know about new tours and events",
+		"description": "Subscribe to our newsletter and receive notifications about new excursions, special offers and cultural events in Krasnodar.",
+		"emailPlaceholder": "Your email",
+		"subscribe": "Subscribe"
+	},
+	"footer": {
+		"description": "Your guide to the best places in the southern capital of Russia."
+	}
+}
