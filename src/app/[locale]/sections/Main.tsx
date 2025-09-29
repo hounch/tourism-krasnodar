@@ -2,9 +2,11 @@
 
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import Link from 'next/link';
 
 export default function Main() {
 	const t = useTranslations();
+	const ts = useTranslations('sections');
 
 	return (
 		<>
@@ -97,6 +99,115 @@ export default function Main() {
 									alt="Краснодар"
 									className="w-full h-64 md:h-96 object-cover"
 								/>
+							</div>
+						</div>
+					</div>
+
+					{/* Тестовая навигация по разделам */}
+					<div className="py-8 bg-white">
+						<div className="container mx-auto px-4">
+							<h2 className="text-xl font-bold mb-4">Навигация (для проверки)</h2>
+							<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+								<div>
+									<h3 className="font-semibold mb-2">{ts('excursions')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/excursions" className="text-green-700 hover:underline">{ts('excursions')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('audioGuides')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/audio-guides" className="text-green-700 hover:underline">{ts('audioGuides')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{useTranslations('sections.attractions')('_root')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/attractions" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('_root')}</Link></li>
+										<li><Link href="/attractions/architecture" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('architecture')}</Link></li>
+										<li><Link href="/attractions/temples" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('temples')}</Link></li>
+										<li><Link href="/attractions/sculptures" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('sculptures')}</Link></li>
+										<li><Link href="/attractions/fountains" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('fountains')}</Link></li>
+										<li><Link href="/attractions/old-town-symbols" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('oldTownSymbols')}</Link></li>
+										<li><Link href="/attractions/parks" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('parks')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{useTranslations('sections.culture')('_root')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/culture" className="text-green-700 hover:underline">{useTranslations('sections.culture')('_root')}</Link></li>
+										<li><Link href="/culture/theaters" className="text-green-700 hover:underline">{useTranslations('sections.culture')('theaters')}</Link></li>
+										<li><Link href="/culture/museums" className="text-green-700 hover:underline">{useTranslations('sections.culture')('museums')}</Link></li>
+										<li><Link href="/culture/galleries" className="text-green-700 hover:underline">{useTranslations('sections.culture')('galleries')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('family')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/family" className="text-green-700 hover:underline">{ts('family')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('sports')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/sports" className="text-green-700 hover:underline">{ts('sports')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('entertainment')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/entertainment" className="text-green-700 hover:underline">{ts('entertainment')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('gastronomy')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/gastronomy" className="text-green-700 hover:underline">{ts('gastronomy')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('stay')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/stay" className="text-green-700 hover:underline">{ts('stay')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{useTranslations('sections.info')('_root')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/info" className="text-green-700 hover:underline">{useTranslations('sections.info')('_root')}</Link></li>
+										<li><Link href="/info/about" className="text-green-700 hover:underline">{useTranslations('sections.info')('about')}</Link></li>
+										<li><Link href="/info/news" className="text-green-700 hover:underline">{useTranslations('sections.info')('news')}</Link></li>
+										<li><Link href="/info/tic" className="text-green-700 hover:underline">{useTranslations('sections.info')('tic')}</Link></li>
+										<li><Link href="/info/contacts" className="text-green-700 hover:underline">{useTranslations('sections.info')('contacts')}</Link></li>
+										<li><Link href="/info/docs" className="text-green-700 hover:underline">{useTranslations('sections.info')('docs')}</Link></li>
+										<li><Link href="/info/professionals" className="text-green-700 hover:underline">{useTranslations('sections.info')('professionals')}</Link></li>
+										<li><Link href="/info/reviews" className="text-green-700 hover:underline">{useTranslations('sections.info')('reviews')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('touristMap')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/tourist-map" className="text-green-700 hover:underline">{ts('touristMap')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('ticProjects')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/tic-projects" className="text-green-700 hover:underline">{ts('ticProjects')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('events')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/events" className="text-green-700 hover:underline">{ts('events')}</Link></li>
+									</ul>
+								</div>
+								<div>
+									<h3 className="font-semibold mb-2">{ts('krasnodarMap')}</h3>
+									<ul className="space-y-1">
+										<li><Link href="/krasnodar-map" className="text-green-700 hover:underline">{ts('krasnodarMap')}</Link></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>

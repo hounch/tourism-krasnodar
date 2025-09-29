@@ -72,5 +72,43 @@
 	},
 	"footer": {
 		"description": "Your guide to the best places in the southern capital of Russia."
+	},
+	"sections": {
+		"excursions": "Excursions",
+		"audioGuides": "Audio Guides",
+		"attractions": {
+			"_root": "Attractions",
+			"architecture": "Architecture",
+			"temples": "Temples",
+			"sculptures": "Sculptures and Bas-Reliefs",
+			"fountains": "Fountains",
+			"oldTownSymbols": "Old Town Symbols",
+			"parks": "Parks and Squares"
+		},
+		"culture": {
+			"_root": "Culture & Arts",
+			"theaters": "Theaters & Concert Halls",
+			"museums": "Museums",
+			"galleries": "Art Galleries"
+		},
+		"family": "Family Leisure",
+		"sports": "Sports in Krasnodar",
+		"entertainment": "Entertainment",
+		"gastronomy": "Gastronomy",
+		"stay": "Where to Stay",
+		"info": {
+			"_root": "Information",
+			"about": "About Krasnodar",
+			"news": "News",
+			"tic": "Tourist Information Center",
+			"contacts": "Contacts",
+			"docs": "Documentation",
+			"professionals": "For Professionals",
+			"reviews": "Reviews"
+		},
+		"touristMap": "Tourist Map",
+		"ticProjects": "TIC Projects",
+		"events": "Events Calendar",
+		"krasnodarMap": "Krasnodar Map"
 	}
 }

@@ -27,9 +27,9 @@ export default function LanguageSwitcher() {
 
 	return (
 		<div className="relative">
-		<select
-			value={currentLocale}
-			onChange={(e) => handleLanguageChange(e.target.value)}
+			<select
+				value={currentLocale}
+				onChange={(e) => handleLanguageChange(e.target.value)}
 				className="bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none pr-8"
 			>
 				{locales.map((loc) => (
