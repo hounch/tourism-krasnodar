@@ -1,385 +1,59 @@
-"use client";
+import Header from "../ui/header";
+import Menu from "../ui/menu";
+import Block from "../ui/block";
 
-export default function Main() {
+export default async function Main() {
   return (
     <>
-      <div className="min-h-screen bg-white">
-        {/* Навигация */}
-        <nav className="bg-white shadow-md fixed w-full z-10">
-          <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-green-700">
-                Краснодар
-              </span>
-              <span className="text-2xl font-bold text-orange-500">Тур</span>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a
-                href="#"
-                className="text-gray-700 hover:text-green-600 font-medium"
-              >
-                Главная
-              </a>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-green-600 font-medium"
-              >
-                Достопримечательности
-              </a>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-green-600 font-medium"
-              >
-                Маршруты
-              </a>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-green-600 font-medium"
-              >
-                События
-              </a>
-              <a
-                href="#"
-                className="text-gray-700 hover:text-green-600 font-medium"
-              >
-                Контакты
-              </a>
-            </div>
-            <button className="md:hidden text-gray-700">
+      <Header />
+      <Menu />
+      <div className="big-card flex h-[31.63rem] items-center justify-center relative">
+        <Block className="w-[88rem] h-full mx-auto rounded-[1.5rem]" />
+        <div className="absolute z-20 flex justify-between items-center w-[88rem] h-[12.5rem]">
+          <div className="intro absolute grid-cols-[2rem_40rem_29.875rem_14.125rem_2rem] grid-rows-[2rem_9rem_9.19rem_3.75rem_7.69rem] grid">
+            {/* absolute z-20 flex justify-between items-center w-[88rem] h-[12.5rem] */}
+            <h1 className="text-black font-bold text-[3.75rem] col-span-1 col-start-2 row-span-1 row-start-2">
+              Встречаемся в Краснодаре
+            </h1>
+            <Block className="w-[14.13rem] h-[8.06rem] bg-white rounded-[0.75rem] col-span-1 col-start-4 row-span-1 row-start-2" />
+          </div>
+          <div className="arrow-left col-span-1 col-start-2 row-span-1 row-start-4 mt-[9.19rem] ml-[2.5rem]">
+            <button className="w-[3.75rem] bg-white h-[3.75rem] rounded-[0.5rem] p-[1.25rem]">
               <svg
-                className="w-6 h-6"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
                 fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
+                  d="M9.1629 2.63074C9.3668 2.44456 9.6831 2.45895 9.8693 2.66289C10.0554 2.86683 10.041 3.18309 9.8371 3.36927L3.6693 9H17.5C17.7761 9 18 9.22386 18 9.5C18 9.77614 17.7761 10 17.5 10H3.6721L9.8371 15.6281C10.041 15.8143 10.0554 16.1305 9.8693 16.3345C9.6831 16.5384 9.3668 16.5528 9.1629 16.3666L2.2465 10.0526C2.1066 9.92482 2.0268 9.75728 2.007 9.58414C2.0024 9.55678 2 9.52867 2 9.5C2 9.47313 2.0021 9.44675 2.0062 9.42103C2.0244 9.24512 2.1045 9.07446 2.2465 8.94478L9.1629 2.63074Z"
+                  fill="#212121"
                 />
               </svg>
             </button>
           </div>
-        </nav>
-
-        {/* Герой секция */}
-        <div className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-green-50 to-amber-50">
-          <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-                Откройте для себя{" "}
-                <span className="text-green-600">Краснодар</span>
-              </h1>
-              <p className="text-lg text-gray-600 mb-8">
-                Южная столица России с богатой историей, вкуснейшей кухней и
-                гостеприимными жителями. Идеальное место для путешествия в любое
-                время года.
-              </p>
-              <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                <button className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300">
-                  Выбрать тур
-                </button>
-                <button className="border border-green-600 text-green-600 hover:bg-green-50 font-medium py-3 px-6 rounded-lg shadow-md transition duration-300">
-                  Узнать больше
-                </button>
-              </div>
-            </div>
-            <div className="md:w-1/2">
-              <div className="rounded-xl overflow-hidden shadow-xl">
-                <img
-                  src="https://images.unsplash.com/photo-1590172205848-3db961eb0cd5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Краснодар"
-                  className="w-full h-64 md:h-96 object-cover"
+          <div className="arrow-right col-span-1 col-start-4 row-span-1 row-start-4 mt-[9.19rem] mr-[2.5rem]">
+            <button className="w-[3.75rem] bg-white h-[3.75rem] rounded-[0.5rem] p-[1.25rem]">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10.8371 2.63074C10.6332 2.44456 10.3169 2.45895 10.1307 2.66289C9.94456 2.86683 9.95895 3.18309 10.1629 3.36927L16.3307 9H2.5C2.22386 9 2 9.22386 2 9.5C2 9.77614 2.22386 10 2.5 10H16.3279L10.1629 15.6281C9.95895 15.8143 9.94456 16.1305 10.1307 16.3345C10.3169 16.5384 10.6332 16.5528 10.8371 16.3666L17.7535 10.0526C17.8934 9.92482 17.9732 9.75728 17.993 9.58414C17.9976 9.55678 18 9.52867 18 9.5C18 9.47313 17.9979 9.44675 17.9938 9.42103C17.9756 9.24512 17.8955 9.07446 17.7535 8.94478L10.8371 2.63074Z"
+                  fill="#212121"
                 />
-              </div>
-            </div>
+              </svg>
+            </button>
           </div>
         </div>
-
-        {/* Популярные достопримечательности */}
-        <div className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Популярные достопримечательности
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Карточка 1 */}
-              <div className="rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-                <img
-                  src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Памятник Екатерине Великой"
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Памятник Екатерине Великой
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Один из символов города, восстановленный исторический
-                    памятник в центре Краснодара.
-                  </p>
-                  <a
-                    href="#"
-                    className="text-green-600 font-medium hover:underline"
-                  >
-                    Подробнее →
-                  </a>
-                </div>
-              </div>
-
-              {/* Карточка 2 */}
-              <div className="rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-                <img
-                  src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Театральная площадь"
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Театральная площадь
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Центральная площадь города с поющим фонтаном и красивой
-                    архитектурой.
-                  </p>
-                  <a
-                    href="#"
-                    className="text-green-600 font-medium hover:underline"
-                  >
-                    Подробнее →
-                  </a>
-                </div>
-              </div>
-
-              {/* Карточка 3 */}
-              <div className="rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-                <img
-                  src="https://images.unsplash.com/photo-1574339446742-3a30dce7ac2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Красная улица"
-                  className="w-full h-56 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">
-                    Улица Красная
-                  </h3>
-                  <p className="text-gray-600 mb-4">
-                    Главная пешеходная улица города с множеством магазинов, кафе
-                    и исторических зданий.
-                  </p>
-                  <a
-                    href="#"
-                    className="text-green-600 font-medium hover:underline"
-                  >
-                    Подробнее →
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Секция о городе */}
-        <div className="py-16 bg-gradient-to-br from-green-50 to-amber-50">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row items-center">
-              <div className="md:w-1/2 mb-10 md:mb-0">
-                <img
-                  src="https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-                  alt="Краснодарский край"
-                  className="rounded-xl shadow-xl w-full h-96 object-cover"
-                />
-              </div>
-              <div className="md:w-1/2 md:pl-12">
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                  Почему стоит посетить Краснодар?
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  Краснодар — это современный город с богатой историей, который
-                  сочетает в себе южное гостеприимство и динамичное развитие.
-                  Здесь вы найдете прекрасные парки, интересные музеи,
-                  вкуснейшую кухню и множество возможностей для отдыха.
-                </p>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="bg-green-100 p-2 rounded-full mr-4">
-                      <svg
-                        className="w-5 h-5 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-gray-700">
-                      Благоприятный климат более 200 солнечных дней в году
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-green-100 p-2 rounded-full mr-4">
-                      <svg
-                        className="w-5 h-5 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-gray-700">
-                      Богатая культурная программа и события
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-green-100 p-2 rounded-full mr-4">
-                      <svg
-                        className="w-5 h-5 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-gray-700">
-                      Уникальная кубанская кухня и гостеприимство
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Секция событий */}
-        <div className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Ближайшие события
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="text-green-600 font-bold text-lg mb-2">
-                  15 октября
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  Фестиваль кубанской кухни
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Попробуйте традиционные блюда кубанской кухни от лучших
-                  поваров региона.
-                </p>
-                <a
-                  href="#"
-                  className="text-green-600 font-medium hover:underline"
-                >
-                  Подробнее →
-                </a>
-              </div>
-
-              <div className="border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="text-green-600 font-bold text-lg mb-2">
-                  22 октября
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  Экскурсия по историческому центру
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Пешеходная экскурсия по самым интересным местам старого
-                  города.
-                </p>
-                <a
-                  href="#"
-                  className="text-green-600 font-medium hover:underline"
-                >
-                  Подробнее →
-                </a>
-              </div>
-
-              <div className="border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="text-green-600 font-bold text-lg mb-2">
-                  29 октября
-                </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-4">
-                  Ночь музеев в Краснодаре
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Специальная программа с бесплатным посещением музеев до
-                  полуночи.
-                </p>
-                <a
-                  href="#"
-                  className="text-green-600 font-medium hover:underline"
-                >
-                  Подробнее →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Секция подписки */}
-        <div className="py-16 bg-green-600 text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Узнавайте первым о новых турах и событиях
-            </h2>
-            <p className="mb-8 max-w-2xl mx-auto">
-              Подпишитесь на нашу рассылку и получайте уведомления о новых
-              экскурсиях, специальных предложениях и культурных событиях
-              Краснодара.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center max-w-2xl mx-auto">
-              <input
-                type="email"
-                placeholder="Ваш email"
-                className="py-3 px-6 rounded-l-lg sm:rounded-r-none sm:rounded-l-lg text-gray-800 w-full sm:w-auto flex-grow focus:outline-none focus:ring-2 focus:ring-green-300"
-              />
-              <button className="bg-amber-500 hover:bg-amber-600 py-3 px-6 mt-4 sm:mt-0 sm:rounded-l-none sm:rounded-r-lg font-medium transition duration-300">
-                Подписаться
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Футер */}
-        <footer className="bg-gray-800 text-white py-12">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div>
-                <div className="flex items-center mb-4">
-                  <span className="text-2xl font-bold text-green-400">
-                    Краснодар
-                  </span>
-                  <span className="text-2xl font-bold text-amber-500">Тур</span>
-                </div>
-                <p className="text-gray-400">
-                  Ваш гид по лучшим местам южной столицы России.
-                </p>
-              </div>
-            </div>
-          </div>
-        </footer>
+      </div>
+      <div className="cards w-[88rem] flex mx-auto mt-[1rem]">
+        <Block className="w-[43.5rem] h-[17.06rem] mr-[1rem] rounded-[1.5rem]" />
+        <Block className="w-[43.5rem] h-[17.06rem] rounded-[1.5rem]" />
       </div>
     </>
   );
