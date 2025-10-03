@@ -30,19 +30,19 @@ export default function LanguageSwitcher() {
 			<select
 				value={currentLocale}
 				onChange={(e) => handleLanguageChange(e.target.value)}
-				className="bg-white border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent appearance-none pr-8"
+				className="bg-[#767676] border border-gray-500 rounded text-white text-[0.88rem] px-2 py-1 hover:bg-[#656565] focus:outline-none focus:ring-2 focus:ring-[#FA4D5C] focus:border-transparent appearance-none pr-6 cursor-pointer"
 			>
 				{locales.map((loc) => (
-					<option key={loc} value={loc}>
-						{languageNames[loc as keyof typeof languageNames]}
+					<option key={loc} value={loc} className="bg-[#767676] text-white">
+						{loc.toUpperCase()}
 					</option>
 				))}
 			</select>
 
 			{/* Иконка стрелки */}
-			<div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+			<div className="absolute inset-y-0 right-0 flex items-center pr-1 pointer-events-none">
 				<svg
-					className="w-4 h-4 text-gray-400"
+					className="w-3 h-3 text-white"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"

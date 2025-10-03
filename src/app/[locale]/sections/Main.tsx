@@ -1,483 +1,386 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import LanguageSwitcher from '../components/LanguageSwitcher';
+import Header from "../ui/header";
+import Menu from "../ui/menu";
+import Block from "../ui/block";
+import Icon from "../ui/icon";
+import Banner from "../ui/banner";
+import Image from "next/image";
+import News from "../ui/news";
 import Link from 'next/link';
 
 export default function Main() {
-	const t = useTranslations();
-	const ts = useTranslations('sections');
+	const t = useTranslations('mainPage');
+	const tFooter = useTranslations('footerPage');
 
 	return (
 		<>
-			<div className="min-h-screen bg-white">
-				{/* Навигация */}
-				<nav className="bg-white shadow-md fixed w-full z-10">
-					<div className="container mx-auto px-4 py-3 flex justify-between items-center">
-						<div className="flex items-center">
-							<span className="text-2xl font-bold text-green-700">
-								Краснодар
-							</span>
-							<span className="text-2xl font-bold text-orange-500">Тур</span>
-						</div>
-						<div className="hidden md:flex items-center space-x-8">
-							<a
-								href="#"
-								className="text-gray-700 hover:text-green-600 font-medium"
-							>
-								{t('navigation.home')}
-							</a>
-							<a
-								href="#"
-								className="text-gray-700 hover:text-green-600 font-medium"
-							>
-								{t('navigation.attractions')}
-							</a>
-							<a
-								href="#"
-								className="text-gray-700 hover:text-green-600 font-medium"
-							>
-								{t('navigation.routes')}
-							</a>
-							<a
-								href="#"
-								className="text-gray-700 hover:text-green-600 font-medium"
-							>
-								{t('navigation.events')}
-							</a>
-							<a
-								href="#"
-								className="text-gray-700 hover:text-green-600 font-medium"
-							>
-								{t('navigation.contacts')}
-							</a>
-							<LanguageSwitcher />
-						</div>
-						<button className="md:hidden text-gray-700">
-							<svg
-								className="w-6 h-6"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									strokeWidth={2}
-									d="M4 6h16M4 12h16m-7 6h7"
-								/>
-							</svg>
-						</button>
-					</div>
-				</nav>
+			<Header />
+			<Menu />
+			<section className="main mb-[4rem]">
 
-				{/* Герой секция */}
-				<div className="pt-20 pb-16 md:pt-32 md:pb-24 bg-gradient-to-r from-green-50 to-amber-50">
-					<div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-						<div className="md:w-1/2 mb-10 md:mb-0">
-							<h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-								{t('hero.title')}{" "}
-								<span className="text-green-600">{t('hero.titleHighlight')}</span>
+				<div className="big-card flex h-[31.63rem] items-center justify-center relative">
+					<Block className="w-[88rem] h-full mx-auto rounded-[1.5rem]" />
+					<div className="absolute z-20 flex justify-between items-center w-[88rem] h-[12.5rem]">
+						<div className="intro absolute grid-cols-[2rem_40rem_29.875rem_14.125rem_2rem] grid-rows-[2rem_9rem_9.19rem_3.75rem_7.69rem] grid">
+							<h1 className="text-[#303030] font-bold text-[3.75rem] col-span-1 col-start-2 row-span-1 row-start-2">
+								{t('welcomeTitle')}
 							</h1>
-							<p className="text-lg text-gray-600 mb-8">
-								{t('hero.description')}
-							</p>
-							<div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-								<button className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg shadow-md transition duration-300">
-									{t('hero.chooseTour')}
-								</button>
-								<button className="border border-green-600 text-green-600 hover:bg-green-50 font-medium py-3 px-6 rounded-lg shadow-md transition duration-300">
-									{t('hero.learnMore')}
-								</button>
-							</div>
+							<Block className="w-[14.13rem] h-[8.06rem] bg-white rounded-[0.75rem] col-span-1 col-start-4 row-span-1 row-start-2" />
 						</div>
-						<div className="md:w-1/2">
-							<div className="rounded-xl overflow-hidden shadow-xl">
-								<img
-									src="https://images.unsplash.com/photo-1590172205848-3db961eb0cd5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-									alt="Краснодар"
-									className="w-full h-64 md:h-96 object-cover"
-								/>
-							</div>
-						</div>
-					</div>
-
-					{/* Тестовая навигация по разделам */}
-					<div className="py-8 bg-white">
-						<div className="container mx-auto px-4">
-							<h2 className="text-xl font-bold mb-4">Навигация (для проверки)</h2>
-							<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-								<div>
-									<h3 className="font-semibold mb-2">{ts('excursions')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/excursions" className="text-green-700 hover:underline">{ts('excursions')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('audioGuides')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/audio-guides" className="text-green-700 hover:underline">{ts('audioGuides')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{useTranslations('sections.attractions')('_root')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/attractions" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('_root')}</Link></li>
-										<li><Link href="/attractions/architecture" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('architecture')}</Link></li>
-										<li><Link href="/attractions/temples" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('temples')}</Link></li>
-										<li><Link href="/attractions/sculptures" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('sculptures')}</Link></li>
-										<li><Link href="/attractions/fountains" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('fountains')}</Link></li>
-										<li><Link href="/attractions/old-town-symbols" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('oldTownSymbols')}</Link></li>
-										<li><Link href="/attractions/parks" className="text-green-700 hover:underline">{useTranslations('sections.attractions')('parks')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{useTranslations('sections.culture')('_root')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/culture" className="text-green-700 hover:underline">{useTranslations('sections.culture')('_root')}</Link></li>
-										<li><Link href="/culture/theaters" className="text-green-700 hover:underline">{useTranslations('sections.culture')('theaters')}</Link></li>
-										<li><Link href="/culture/museums" className="text-green-700 hover:underline">{useTranslations('sections.culture')('museums')}</Link></li>
-										<li><Link href="/culture/galleries" className="text-green-700 hover:underline">{useTranslations('sections.culture')('galleries')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('family')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/family" className="text-green-700 hover:underline">{ts('family')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('sports')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/sports" className="text-green-700 hover:underline">{ts('sports')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('entertainment')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/entertainment" className="text-green-700 hover:underline">{ts('entertainment')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('gastronomy')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/gastronomy" className="text-green-700 hover:underline">{ts('gastronomy')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('stay')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/stay" className="text-green-700 hover:underline">{ts('stay')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{useTranslations('sections.info')('_root')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/info" className="text-green-700 hover:underline">{useTranslations('sections.info')('_root')}</Link></li>
-										<li><Link href="/info/about" className="text-green-700 hover:underline">{useTranslations('sections.info')('about')}</Link></li>
-										<li><Link href="/info/news" className="text-green-700 hover:underline">{useTranslations('sections.info')('news')}</Link></li>
-										<li><Link href="/info/tic" className="text-green-700 hover:underline">{useTranslations('sections.info')('tic')}</Link></li>
-										<li><Link href="/info/contacts" className="text-green-700 hover:underline">{useTranslations('sections.info')('contacts')}</Link></li>
-										<li><Link href="/info/docs" className="text-green-700 hover:underline">{useTranslations('sections.info')('docs')}</Link></li>
-										<li><Link href="/info/professionals" className="text-green-700 hover:underline">{useTranslations('sections.info')('professionals')}</Link></li>
-										<li><Link href="/info/reviews" className="text-green-700 hover:underline">{useTranslations('sections.info')('reviews')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('touristMap')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/tourist-map" className="text-green-700 hover:underline">{ts('touristMap')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('ticProjects')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/tic-projects" className="text-green-700 hover:underline">{ts('ticProjects')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('events')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/events" className="text-green-700 hover:underline">{ts('events')}</Link></li>
-									</ul>
-								</div>
-								<div>
-									<h3 className="font-semibold mb-2">{ts('krasnodarMap')}</h3>
-									<ul className="space-y-1">
-										<li><Link href="/krasnodar-map" className="text-green-700 hover:underline">{ts('krasnodarMap')}</Link></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Популярные достопримечательности */}
-				<div className="py-16 bg-white">
-					<div className="container mx-auto px-4">
-						<h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-							{t('attractions.title')}
-						</h2>
-						<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-							{/* Карточка 1 */}
-							<div className="rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-								<img
-									src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-									alt="Памятник Екатерине Великой"
-									className="w-full h-56 object-cover"
-								/>
-								<div className="p-6">
-									<h3 className="text-xl font-bold text-gray-800 mb-2">
-										{t('attractions.catherine.title')}
-									</h3>
-									<p className="text-gray-600 mb-4">
-										{t('attractions.catherine.description')}
-									</p>
-									<a
-										href="#"
-										className="text-green-600 font-medium hover:underline"
-									>
-										{t('common.readMore')} →									</a>
-								</div>
-							</div>
-
-							{/* Карточка 2 */}
-							<div className="rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-								<img
-									src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-									alt="Театральная площадь"
-									className="w-full h-56 object-cover"
-								/>
-								<div className="p-6">
-									<h3 className="text-xl font-bold text-gray-800 mb-2">
-										{t('attractions.theater.title')}
-									</h3>
-									<p className="text-gray-600 mb-4">
-										{t('attractions.theater.description')}
-									</p>
-									<a
-										href="#"
-										className="text-green-600 font-medium hover:underline"
-									>
-										{t('common.readMore')} →									</a>
-								</div>
-							</div>
-
-							{/* Карточка 3 */}
-							<div className="rounded-xl overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105">
-								<img
-									src="https://images.unsplash.com/photo-1574339446742-3a30dce7ac2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-									alt="Красная улица"
-									className="w-full h-56 object-cover"
-								/>
-								<div className="p-6">
-									<h3 className="text-xl font-bold text-gray-800 mb-2">
-										{t('attractions.redStreet.title')}
-									</h3>
-									<p className="text-gray-600 mb-4">
-										{t('attractions.redStreet.description')}
-									</p>
-									<a
-										href="#"
-										className="text-green-600 font-medium hover:underline"
-									>
-										{t('common.readMore')} →									</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Секция о городе */}
-				<div className="py-16 bg-gradient-to-br from-green-50 to-amber-50">
-					<div className="container mx-auto px-4">
-						<div className="flex flex-col md:flex-row items-center">
-							<div className="md:w-1/2 mb-10 md:mb-0">
-								<img
-									src="https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-									alt="Краснодарский край"
-									className="rounded-xl shadow-xl w-full h-96 object-cover"
-								/>
-							</div>
-							<div className="md:w-1/2 md:pl-12">
-								<h2 className="text-3xl font-bold text-gray-800 mb-6">
-									{t('about.title')}
-								</h2>
-								<p className="text-gray-600 mb-6">
-									{t('about.description')}
-								</p>
-								<ul className="space-y-4">
-									<li className="flex items-start">
-										<div className="bg-green-100 p-2 rounded-full mr-4">
-											<svg
-												className="w-5 h-5 text-green-600"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-												xmlns="http://www.w3.org/2000/svg"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={2}
-													d="M5 13l4 4L19 7"
-												/>
-											</svg>
-										</div>
-										<span className="text-gray-700">
-											{t('about.features.climate')}
-										</span>
-									</li>
-									<li className="flex items-start">
-										<div className="bg-green-100 p-2 rounded-full mr-4">
-											<svg
-												className="w-5 h-5 text-green-600"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-												xmlns="http://www.w3.org/2000/svg"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={2}
-													d="M5 13l4 4L19 7"
-												/>
-											</svg>
-										</div>
-										<span className="text-gray-700">
-											{t('about.features.culture')}
-										</span>
-									</li>
-									<li className="flex items-start">
-										<div className="bg-green-100 p-2 rounded-full mr-4">
-											<svg
-												className="w-5 h-5 text-green-600"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-												xmlns="http://www.w3.org/2000/svg"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={2}
-													d="M5 13l4 4L19 7"
-												/>
-											</svg>
-										</div>
-										<span className="text-gray-700">
-											{t('about.features.cuisine')}
-										</span>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				{/* Секция событий */}
-				<div className="py-16 bg-white">
-					<div className="container mx-auto px-4">
-						<h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-							{t('events.title')}
-						</h2>
-						<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-							<div className="border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-								<div className="text-green-600 font-bold text-lg mb-2">
-									{t('events.foodFestival.date')}
-								</div>
-								<h3 className="text-xl font-bold text-gray-800 mb-4">
-									{t('events.foodFestival.title')}
-								</h3>
-								<p className="text-gray-600 mb-4">
-									{t('events.foodFestival.description')}
-								</p>
-								<a
-									href="#"
-									className="text-green-600 font-medium hover:underline"
+						<div className="arrow-left col-span-1 col-start-2 row-span-1 row-start-4 mt-[9.19rem] ml-[2.5rem]">
+							<button className="w-[3.75rem] bg-white h-[3.75rem] rounded-[0.5rem] p-[1.25rem]">
+								<svg
+									width="20"
+									height="20"
+									viewBox="0 0 20 20"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
 								>
-									{t('common.readMore')} →								</a>
-							</div>
-
-							<div className="border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-								<div className="text-green-600 font-bold text-lg mb-2">
-									{t('events.cityTour.date')}
-								</div>
-								<h3 className="text-xl font-bold text-gray-800 mb-4">
-									{t('events.cityTour.title')}
-								</h3>
-								<p className="text-gray-600 mb-4">
-									{t('events.cityTour.description')}
-								</p>
-								<a
-									href="#"
-									className="text-green-600 font-medium hover:underline"
-								>
-									{t('common.readMore')} →								</a>
-							</div>
-
-							<div className="border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-								<div className="text-green-600 font-bold text-lg mb-2">
-									{t('events.museumNight.date')}
-								</div>
-								<h3 className="text-xl font-bold text-gray-800 mb-4">
-									{t('events.museumNight.title')}
-								</h3>
-								<p className="text-gray-600 mb-4">
-									{t('events.museumNight.description')}
-								</p>
-								<a
-									href="#"
-									className="text-green-600 font-medium hover:underline"
-								>
-									{t('common.readMore')} →								</a>
-							</div>
+									<path
+										d="M9.1629 2.63074C9.3668 2.44456 9.6831 2.45895 9.8693 2.66289C10.0554 2.86683 10.041 3.18309 9.8371 3.36927L3.6693 9H17.5C17.7761 9 18 9.22386 18 9.5C18 9.77614 17.7761 10 17.5 10H3.6721L9.8371 15.6281C10.041 15.8143 10.0554 16.1305 9.8693 16.3345C9.6831 16.5384 9.3668 16.5528 9.1629 16.3666L2.2465 10.0526C2.1066 9.92482 2.0268 9.75728 2.007 9.58414C2.0024 9.55678 2 9.52867 2 9.5C2 9.47313 2.0021 9.44675 2.0062 9.42103C2.0244 9.24512 2.1045 9.07446 2.2465 8.94478L9.1629 2.63074Z"
+										fill="#212121"
+									/>
+								</svg>
+							</button>
 						</div>
-					</div>
-				</div>
-
-				{/* Секция подписки */}
-				<div className="py-16 bg-green-600 text-white">
-					<div className="container mx-auto px-4 text-center">
-						<h2 className="text-3xl font-bold mb-6">
-							{t('newsletter.title')}
-						</h2>
-						<p className="mb-8 max-w-2xl mx-auto">
-							{t('newsletter.description')}
-						</p>
-						<div className="flex flex-col sm:flex-row justify-center max-w-2xl mx-auto">
-							<input
-								type="email"
-								placeholder={t('newsletter.emailPlaceholder')} className="py-3 px-6 rounded-l-lg sm:rounded-r-none sm:rounded-l-lg text-gray-800 w-full sm:w-auto flex-grow focus:outline-none focus:ring-2 focus:ring-green-300"
-							/>
-							<button className="bg-amber-500 hover:bg-amber-600 py-3 px-6 mt-4 sm:mt-0 sm:rounded-l-none sm:rounded-r-lg font-medium transition duration-300">
-								{t('newsletter.subscribe')}
+						<div className="arrow-right col-span-1 col-start-4 row-span-1 row-start-4 mt-[9.19rem] mr-[2.5rem]">
+							<button className="w-[3.75rem] bg-white h-[3.75rem] rounded-[0.5rem] p-[1.25rem]">
+								<svg
+									width="20"
+									height="20"
+									viewBox="0 0 20 20"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<path
+										d="M10.8371 2.63074C10.6332 2.44456 10.3169 2.45895 10.1307 2.66289C9.94456 2.86683 9.95895 3.18309 10.1629 3.36927L16.3307 9H2.5C2.22386 9 2 9.22386 2 9.5C2 9.77614 2.22386 10 2.5 10H16.3279L10.1629 15.6281C9.95895 15.8143 9.94456 16.1305 10.1307 16.3345C10.3169 16.5384 10.6332 16.5528 10.8371 16.3666L17.7535 10.0526C17.8934 9.92482 17.9732 9.75728 17.993 9.58414C17.9976 9.55678 18 9.52867 18 9.5C18 9.47313 17.9979 9.44675 17.9938 9.42103C17.9756 9.24512 17.8955 9.07446 17.7535 8.94478L10.8371 2.63074Z"
+										fill="#212121"
+									/>
+								</svg>
 							</button>
 						</div>
 					</div>
 				</div>
+				<div className="cards w-[88rem] flex mx-auto mt-[1rem] relative">
+					<Link href="/krasnodar-map" className="relative w-[43.5rem] h-[17.06rem] mr-[1rem] rounded-[1.5rem] bg-[#d4d4d4] hover:opacity-90 transition-opacity cursor-pointer">
+						<h4 className="text-[#303030] font-bold text-[1.5rem] absolute mt-[13.56rem] ml-[1.5rem]">
+							{t('mapCard')}
+						</h4>
+					</Link>
+					<Link href="/info/news" className="relative w-[43.5rem] h-[17.06rem] rounded-[1.5rem] bg-[#d4d4d4] hover:opacity-90 transition-opacity cursor-pointer">
+						<h4 className="text-[#303030] font-bold text-[1.5rem] absolute mt-[13.56rem] ml-[1.5rem]">
+							{t('newsCard')}
+						</h4>
+					</Link>
+				</div>
+			</section>
 
-				{/* Футер */}
-				<footer className="bg-gray-800 text-white py-12">
-					<div className="container mx-auto px-4">
-						<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-							<div>
-								<div className="flex items-center mb-4">
-									<span className="text-2xl font-bold text-green-400">
-										Краснодар
-									</span>
-									<span className="text-2xl font-bold text-amber-500">Тур</span>
-								</div>
-								<p className="text-gray-400">
-									{t('footer.description')}
-								</p>
-							</div>
+			<section className="intro container max-w-[75rem] mt-[8rem] items-center flex mx-auto mb-[8rem]">
+				<div className="text w-[44.25rem] mr-[2.63rem]">
+					<h2 className="text-[3rem] font-bold mb-[2.25rem] text-[#303030]">{t('ticTitle')}</h2>
+					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription1')}</p>
+					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription2')}</p>
+					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription3')}</p>
+					<p className="text-[1.125rem] font-400">{t('ticDescription4')}</p>
+				</div>
+				<div className="icons flex flex-col w-[28.13rem] mt-[0.75rem]">
+					<div className="group1 flex">
+						<Icon
+							img={<TravelIcon />}
+							title={t('transport')}
+							description={t('transportDesc')}
+							className="mb-[1.5rem] mr-[1rem]" />
+						<Icon
+							img={<GuideIcon />}
+							title={t('guides')}
+							description={t('guidesDesc')}
+							className="mb-[1.5rem]" />
+					</div>
+					<div className="group2 flex">
+						<Icon
+							img={<ExcursionIcon />}
+							title={t('excursions')}
+							description={t('excursionsDesc')}
+							className="mr-[1rem]" />
+						<Icon
+							img={<RoadIcon />}
+							title={t('routes')}
+							description={t('routesDesc')} />
+					</div>
+					<Link href="/info/tic" className="bg-[#D4D4D4] hover:bg-[#C4C4C4] transition-colors rounded-[0.5rem] w-[28.125rem] h-[3.125rem] text-[#303030] flex items-center justify-center cursor-pointer">{t('openWithUs')}</Link>
+				</div>
+			</section>
+
+			<section className="travel mx-auto items-center max-w-[75rem] text-[#303030]">
+				<h2 className="text-[3rem] font-bold">{t('travelTitle')}</h2>
+				<div className="group1 mt-[2.25rem] grid grid-cols-[18rem_18rem_18rem_18rem] grid-rows-[20.19rem_20.19rem] gap-[1rem]">
+					<Link href="/excursions" className="block hover:opacity-90 transition-opacity"><Banner title={t('excursionsAndGuides')} description={t('excursionsByCity')} /></Link>
+					<Link href="/culture" className="block hover:opacity-90 transition-opacity"><Banner title={t('cultureAndArt')} description={t('cultureDesc')} /></Link>
+					<Link href="/stay" className="block hover:opacity-90 transition-opacity"><Banner title={t('whereToStayTitle')} description={t('whereToStayDesc')} /></Link>
+					<Link href="/gastronomy" className="row-span-2 block hover:opacity-90 transition-opacity"><Banner title={t('gastronomyTitle')} description={t('gastronomyDesc')} /></Link>
+					<Link href="/attractions" className="col-span-2 block hover:opacity-90 transition-opacity"><Banner title={t('attractionsTitle')} description={t('attractionsDesc')} /></Link>
+					<Link href="/attractions/parks" className="col-start-3 block hover:opacity-90 transition-opacity"><Banner title={t('greenCity')} description={t('greenCityDesc')} /></Link>
+				</div>
+				<div className="group2 mt-[4rem] grid grid-cols-[18rem_18rem_18rem_18rem] grid-rows-[20.19rem] gap-[1rem]">
+					<Link href="/family" className="block hover:opacity-90 transition-opacity"><Banner title={t('familyLeisure')} /></Link>
+					<Link href="/sports" className="block hover:opacity-90 transition-opacity"><Banner title={t('sportKrasnodar')} /></Link>
+					<Link href="/entertainment" className="block hover:opacity-90 transition-opacity"><Banner title={t('entertainment')} /></Link>
+					<Link href="/entertainment" className="block hover:opacity-90 transition-opacity"><Banner title={t('relaxAndSpa')} /></Link>
+				</div>
+			</section>
+
+			<section className="news mx-auto max-w-[75rem] text-[#303030] mt-[8rem]">
+				<div className="flex items-center">
+					<h2 className="text-[3rem] font-bold">{t('newsTitle')}</h2>
+					<Link href="/info/news" className="bg-[#D4D4D4] hover:bg-[#C4C4C4] transition-colors ml-auto rounded-[0.75rem] w-[9.19rem] h-[3.31rem] flex items-center justify-center cursor-pointer">{t('allNews')}</Link>
+				</div>
+				<div className="mt-[2.25rem] flex">
+					<Link href="/info/news" className="hover:opacity-90 transition-opacity">
+						<News description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+					</Link>
+					<Link href="/info/news" className="hover:opacity-90 transition-opacity">
+						<News description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+					</Link>
+					<Link href="/info/news" className="hover:opacity-90 transition-opacity">
+						<News description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua" />
+					</Link>
+				</div>
+			</section>
+
+			<section className="projects mx-auto max-w-[75rem] text-[#303030] mt-[8rem]">
+				<h2 className="text-[3rem] font-bold">{t('projectsTitle')}</h2>
+				<Link href="/tic-projects" className="block mt-[2.25rem] hover:opacity-90 transition-opacity"><Banner title={t('projectName')} btn={t('learnAboutProject')} height="20.19rem" /></Link>
+			</section>
+
+			<section className="gosuslugi mx-auto max-w-[75rem] text-[#303030] mt-[8rem]">
+				<div className="flex">
+					<Image src={"/Mini_app_gosuslugi_VK.jpg"} alt={""} width={551} height={273} className="mr-[2.81rem]" />
+					<Image src={"/banner-gov.jpg"} alt={""} width={604} height={273} />
+				</div>
+			</section>
+
+			<section className="footer mx-auto max-w-full text-[#303030] mt-[8rem]">
+				<div className="flex mx-auto mb-[3rem] justify-between max-w-[75rem]">
+					<div className="w-[20rem] flex flex-col justify-between h-[11.94rem]">
+						<LogoIcon />
+						<p className="mt-[0.75rem] mb-[1rem] text-[1rem] text-[#30303080] font-400">{tFooter('description')}</p>
+						<Image src={"/image-2.jpg"} alt={""} width={142} height={63} />
+					</div>
+					<div className="w-[10.5rem] flex flex-col justify-between h-[8.25rem]">
+						<h6 className="text-[1.125rem] font-bold">+7 (861) 218-97-77</h6>
+						<h6 className="text-[1.125rem] font-bold">tic@krd.ru</h6>
+						<div className="flex w-[7.5rem] justify-between"><TgIcon /> <VkIcon /> <OkIcon /></div>
+					</div>
+					<div className="w-[10.125rem] flex flex-col justify-between h-[8.25rem]">
+						<Link href="/info/about" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('aboutKrasnodar')}</Link>
+						<Link href="/info/docs" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('documentation')}</Link>
+						<Link href="/info/news" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('newsLink')}</Link>
+						<Link href="/krasnodar-map" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('mapLink')}</Link>
+					</div>
+					<div className="w-[10.125rem] flex flex-col justify-between h-[8.25rem]">
+						<Link href="/excursions" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('excursionsLink')}</Link>
+						<Link href="/gastronomy" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('gastronomyLink')}</Link>
+						<Link href="/stay" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('whereToStayLink')}</Link>
+						<Link href="/tourist-map" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('touristMapLink')}</Link>
+					</div>
+				</div>
+				<div className="h-[7.75rem] bg-[#FAFAFA] py-[2rem]">
+					<div className="max-w-[75rem] flex justify-between items-center mx-auto">
+						<p className="text-[0.875rem] text-[#30303080]">{tFooter('copyright')}</p>
+						<div>
+							<p className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataConsent')}</p>
+							<p className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataPolicy')}</p>
+							<p className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataTerms')}</p>
 						</div>
 					</div>
-				</footer>
-			</div>
+				</div>
+			</section>
 		</>
 	);
 }
+
+// SVG Icons Components
+const TgIcon = () => (
+	<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M15 0.666504C6.90401 0.666504 0.333344 7.23717 0.333344 15.3332C0.333344 23.4292 6.90401 29.9998 15 29.9998C23.096 29.9998 29.6667 23.4292 29.6667 15.3332C29.6667 7.23717 23.096 0.666504 15 0.666504ZM21.8053 10.6398C21.5853 12.9572 20.632 18.5892 20.148 21.1852C19.9427 22.2852 19.532 22.6518 19.1507 22.6958C18.3 22.7692 17.6547 22.1385 16.8333 21.5958C15.5427 20.7452 14.8093 20.2172 13.5627 19.3958C12.1107 18.4425 13.0493 17.9145 13.8853 17.0638C14.1053 16.8438 17.86 13.4265 17.9333 13.1185C17.9435 13.0718 17.9421 13.0234 17.9293 12.9774C17.9167 12.9314 17.8928 12.8892 17.86 12.8545C17.772 12.7812 17.6547 12.8105 17.552 12.8252C17.42 12.8545 15.3667 14.2185 11.3627 16.9172C10.776 17.3132 10.248 17.5185 9.77868 17.5038C9.25068 17.4892 8.25334 17.2105 7.50534 16.9612C6.58134 16.6678 5.86268 16.5065 5.92134 15.9932C5.95068 15.7292 6.31734 15.4652 7.00668 15.1865C11.2893 13.3238 14.1347 12.0918 15.5573 11.5052C19.6347 9.80384 20.4707 9.5105 21.028 9.5105C21.1453 9.5105 21.424 9.53984 21.6 9.6865C21.7467 9.80384 21.7907 9.96517 21.8053 10.0825C21.7907 10.1705 21.82 10.4345 21.8053 10.6398Z" fill="#303030" />
+	</svg>
+
+);
+
+const VkIcon = () => (
+	<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M2.29331 1.96C0.333313 3.93867 0.333313 7.10267 0.333313 13.44V14.56C0.333313 20.888 0.333313 24.052 2.29331 26.04C4.27198 28 7.43598 28 13.7733 28H14.8933C21.2213 28 24.3853 28 26.3733 26.04C28.3333 24.0613 28.3333 20.8973 28.3333 14.56V13.44C28.3333 7.112 28.3333 3.948 26.3733 1.96C24.3946 -3.17891e-07 21.2306 0 14.8933 0H13.7733C7.44531 0 4.28131 -3.17891e-07 2.29331 1.96ZM5.05598 8.52133H8.26665C8.36931 13.86 10.7213 16.1187 12.588 16.5853V8.52133H15.6026V13.1227C17.4413 12.9267 19.3826 10.8267 20.036 8.512H23.0413C22.7961 9.71013 22.3065 10.8448 21.6032 11.8452C20.8998 12.8457 19.9977 13.6904 18.9533 14.3267C20.119 14.9067 21.1486 15.7273 21.974 16.7345C22.7993 17.7416 23.4017 18.9123 23.7413 20.1693H20.428C19.7186 17.9573 17.9453 16.24 15.6026 16.0067V20.1693H15.2293C8.84531 20.1693 5.20531 15.8013 5.05598 8.52133Z" fill="#303030" />
+	</svg>
+
+);
+
+const OkIcon = () => (
+	<svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M15.5152 7.62049C15.1411 7.60205 14.767 7.65865 14.4158 7.78687C14.0646 7.91507 13.7436 8.11223 13.4722 8.36634C13.2008 8.62047 12.9847 8.92624 12.837 9.26509C12.6894 9.60396 12.6132 9.96883 12.6132 10.3375C12.6132 10.7063 12.6894 11.0711 12.837 11.41C12.9847 11.7489 13.2008 12.0546 13.4722 12.3087C13.7436 12.5629 14.0646 12.76 14.4158 12.8882C14.767 13.0164 15.1411 13.073 15.5152 13.0546C15.8893 13.073 16.2633 13.0164 16.6144 12.8882C16.9657 12.76 17.2867 12.5629 17.5581 12.3087C17.8295 12.0546 18.0457 11.7489 18.1933 11.41C18.3409 11.0711 18.4172 10.7063 18.4172 10.3375C18.4172 9.96883 18.3409 9.60396 18.1933 9.26509C18.0457 8.92624 17.8295 8.62047 17.5581 8.36634C17.2867 8.11223 16.9657 7.91507 16.6144 7.78687C16.2633 7.65865 15.8893 7.60205 15.5152 7.62049ZM26.5974 0.45459H4.4329C1.98788 0.45459 0 2.4114 0 4.81823V26.6364C0 29.0432 1.98788 31 4.4329 31H26.5974C29.0425 31 31.0303 29.0432 31.0303 26.6364V4.81823C31.0303 2.4114 29.0425 0.45459 26.5974 0.45459ZM15.5152 4.8114C17.0041 4.8114 18.432 5.39363 19.4848 6.42998C20.5376 7.46633 21.129 8.87193 21.129 10.3375C21.129 11.8032 20.5376 13.2088 19.4848 14.2451C18.432 15.2815 17.0041 15.8638 15.5152 15.8638C14.0263 15.8638 12.5984 15.2815 11.5456 14.2451C10.4928 13.2088 9.90129 11.8032 9.90129 10.3375C9.90129 8.87193 10.4928 7.46633 11.5456 6.42998C12.5984 5.39363 14.0263 4.8114 15.5152 4.8114ZM19.6225 16.2864C20.7862 15.3864 21.6657 15.9115 21.9844 16.5318C22.5247 17.6227 21.9082 18.1478 20.4953 19.0546C19.3108 19.7977 17.6762 20.091 16.6026 20.2L17.503 21.0796L20.807 24.3318C22.0121 25.5523 20.0451 27.4546 18.826 26.2818C17.9948 25.4501 16.7827 24.2569 15.522 23.0159L12.2182 26.2818C10.9922 27.4546 9.03203 25.5318 10.2511 24.3318L11.1169 23.4796C11.8372 22.7705 12.6823 21.9318 13.555 21.0796L14.4485 20.2C13.3818 20.091 11.7264 19.8114 10.5281 19.0546C9.12208 18.1478 8.49871 17.6296 9.04589 16.5318C9.36451 15.9115 10.2442 15.3864 11.4078 16.2864C11.4078 16.2864 12.9801 17.5136 15.5152 17.5136C18.0502 17.5136 19.6225 16.2864 19.6225 16.2864Z" fill="#303030" />
+	</svg>
+
+);
+
+const LogoIcon = () => (
+	<svg
+		width="206"
+		height="52"
+		viewBox="0 0 206 52"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
+		<path
+			d="M29.4703 45.4149L31.7701 46.4258L35.6382 36.5297L33.3384 35.5187L29.4703 45.4149Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M30.694 33.027L25.2365 38.8081L26.9947 40.6734L32.4523 34.8923L30.694 33.027Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M29.1468 29.6525L16.4663 35.22L17.4228 37.6548L30.1033 32.0873L29.1468 29.6525Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M28.9429 25.9072H7V28.5415H28.9429V25.9072Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M30.1033 22.3618L17.9784 17.0435L17.0219 19.4783L29.1468 24.7966L30.1033 22.3618Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M32.4523 19.5566L20.4611 6.85535L18.7029 8.72067L30.6941 21.4219L32.4523 19.5566Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M35.6382 17.9264L29.4141 2L27.1143 3.01098L33.3385 18.9303L35.6382 17.9264Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M48.6351 3.27424L46.3354 2.27039L40.2167 17.9263L42.5165 18.9301L48.6351 3.27424Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M46.7081 24.7968L53.1081 21.9916L52.1516 19.5568L45.7516 22.3619L46.7081 24.7968Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M46.9121 25.9072V28.5415H65.8589V25.9072H46.9121Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M45.7516 32.0874L63.7208 39.9758L64.6703 37.5338L46.7081 29.6525L45.7516 32.0874Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M39.6892 27.2246L49.4017 16.9298L47.6435 15.0644L39.1688 24.0422V3.85828H36.6861V43.0799H39.1688V30.4071L56.4839 48.7542L58.2422 46.8888L39.6892 27.2246Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M40.2167 36.5297L45.4844 49.9998L47.7841 48.996L42.5165 35.5187L40.2167 36.5297Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M74.9032 16.3604H78.0892V25.0533L85.2276 16.3604H89.0536L81.6056 24.8967L85.4808 29.7665C86.8522 31.468 88.0408 32.2512 89.3138 31.881V34.6861C86.6202 35.4977 84.5525 33.8246 82.8224 31.468L78.0892 25.2313V34.6861H74.9032V16.3604Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M90.9174 22.9031H93.8853V24.028C94.6097 23.2448 95.9811 22.6183 97.4862 22.6183C100.693 22.6183 102.761 25.1315 102.761 28.6129C102.761 32.2012 100.327 34.9707 96.607 34.9707C95.5732 34.9707 94.5604 34.7927 93.8853 34.394V39.9188H90.9174V22.9031ZM93.8853 26.7263V31.4964C94.687 32.0161 95.3622 32.1727 96.3468 32.1727C98.4145 32.1727 99.6031 30.6563 99.6031 28.6913C99.6031 26.8046 98.52 25.4447 96.5508 25.4447C95.5451 25.4447 94.6097 25.9146 93.8853 26.7263Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M113.029 33.7461C112.255 34.4723 111.116 34.9707 109.822 34.9707C106.327 34.9707 104.104 32.486 104.104 28.7909C104.104 25.3664 106.847 22.6183 110.778 22.6183C112.769 22.6183 114.759 23.2448 116.004 24.028V34.6859H113.029V33.7461ZM113.029 30.941V26.0214C112.333 25.6797 111.58 25.4447 110.75 25.4447C108.479 25.4447 107.283 27.068 107.283 28.9262C107.283 30.998 108.556 32.1727 110.363 32.1727C111.425 32.1727 112.431 31.596 113.029 30.941Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M128.987 32.9274C128.002 34.2659 126.244 34.9707 124.352 34.9707C120.582 34.9707 118.044 32.5145 118.044 28.7909C118.044 25.3664 120.526 22.6183 124.071 22.6183C125.984 22.6183 127.665 23.1095 128.755 24.2131L127.355 26.5981C126.476 25.7295 125.52 25.4447 124.458 25.4447C122.805 25.4447 121.229 26.7263 121.229 28.7909C121.229 30.8912 122.833 32.1727 124.591 32.1727C125.857 32.1727 126.842 31.5676 127.587 30.7346L128.987 32.9274Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			d="M138.917 30.179H133.818V34.6857H130.85V22.9028H133.818V27.3525H138.917V22.9028H141.892V34.6857H138.917V30.179Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M150.297 22.6183C154.151 22.6183 156.633 25.2596 156.633 28.7909C156.633 32.3293 154.151 34.9707 150.297 34.9707C146.443 34.9707 143.96 32.3293 143.96 28.7909C143.96 25.2596 146.443 22.6183 150.297 22.6183ZM150.297 32.1727C152.132 32.1727 153.476 30.8342 153.476 28.7909C153.476 26.8046 152.104 25.4447 150.297 25.4447C148.538 25.4447 147.139 26.7547 147.139 28.7909C147.139 30.7559 148.489 32.1727 150.297 32.1727Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M157.435 31.8806H158.912C159.735 30.7842 160.382 28.3991 160.537 25.7293L160.72 22.9028H169.307V31.8806H171.248V37.4338H168.456V34.6857H160.206V37.4338H157.435V31.8806ZM162.014 31.8806H166.332V25.7293H163.491L163.406 26.9325C163.174 29.4172 162.527 31.1473 162.014 31.8806Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M181.41 33.7461C180.637 34.4723 179.498 34.9707 178.203 34.9707C174.715 34.9707 172.486 32.486 172.486 28.7909C172.486 25.3664 175.229 22.6183 179.16 22.6183C181.15 22.6183 183.141 23.2448 184.385 24.028V34.6859H181.41V33.7461ZM181.41 30.941V26.0214C180.714 25.6797 179.962 25.4447 179.132 25.4447C176.86 25.4447 175.672 27.068 175.672 28.9262C175.672 30.998 176.938 32.1727 178.745 32.1727C179.807 32.1727 180.813 31.596 181.41 30.941Z"
+			fill="#FA4D5C"
+		/>
+		<path
+			fillRule="evenodd"
+			clipRule="evenodd"
+			d="M187.149 22.9031H190.124V24.028C190.849 23.2448 192.22 22.6183 193.718 22.6183C196.925 22.6183 199 25.1315 199 28.6129C199 32.2012 196.567 34.9707 192.839 34.9707C191.805 34.9707 190.8 34.7927 190.124 34.394V39.9188H187.149V22.9031ZM190.124 26.7263V31.4964C190.926 32.0161 191.601 32.1727 192.586 32.1727C194.654 32.1727 195.842 30.6563 195.842 28.6913C195.842 26.8046 194.759 25.4447 192.79 25.4447C191.784 25.4447 190.849 25.9146 190.124 26.7263Z"
+			fill="#FA4D5C"
+		/>
+	</svg>
+);
+
+const TravelIcon = () => (
+	<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M13.8358 52.3136C10.6117 52.3136 7.98468 49.6866 7.98468 46.4625C7.98468 45.9849 8.36678 45.6027 8.84443 45.6027C9.31411 45.6027 9.70418 45.9849 9.70418 46.4625C9.70418 48.7393 11.559 50.5941 13.8358 50.5941C16.1205 50.5941 17.9754 48.7393 17.9754 46.4625C17.9754 44.1778 16.1205 42.3229 13.8358 42.3229C13.3661 42.3229 12.9761 41.9408 12.9761 41.4632C12.9761 40.9935 13.3661 40.6034 13.8358 40.6034C17.0679 40.6034 19.6949 43.2305 19.6949 46.4625C19.6949 49.6866 17.0679 52.3136 13.8358 52.3136Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M13.8358 55.9679C8.59764 55.9679 4.33069 51.701 4.33069 46.4629C4.33069 46.3302 4.33601 46.1975 4.34663 46.0648L4.35457 45.9374C4.6332 40.8983 8.79666 36.9498 13.8358 36.9498C18.8829 36.9498 23.0464 40.8983 23.317 45.9374L23.333 46.0728C23.3383 46.2001 23.3436 46.3302 23.3489 46.4629C23.3489 51.701 19.0819 55.9679 13.8358 55.9679ZM13.8358 38.6693C9.71215 38.6693 6.29699 41.9014 6.07409 46.033L6.05818 46.1842C6.05287 46.2744 6.05021 46.3673 6.05021 46.4629C6.05021 50.7537 9.54497 54.2484 13.8358 54.2484C18.1346 54.2484 21.6294 50.7537 21.6294 46.4629C21.6294 46.3673 21.6241 46.2744 21.6135 46.1842L21.6055 46.025C21.3826 41.9014 17.9674 38.6693 13.8358 38.6693Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M43.7123 55.9679C38.4742 55.9679 34.2072 51.701 34.2072 46.4629C34.2072 46.3302 34.2125 46.2001 34.2232 46.0728L34.2311 45.9374C34.5097 40.8983 38.6732 36.9498 43.7123 36.9498C48.7515 36.9498 52.9229 40.8983 53.1936 45.9374L53.2015 46.0728C53.2122 46.2001 53.2174 46.3302 53.2174 46.4629C53.2174 51.701 48.9585 55.9679 43.7123 55.9679ZM43.7123 38.6693C39.5807 38.6693 36.1735 41.9014 35.9427 46.033L35.9347 46.1842C35.9294 46.2744 35.9267 46.3673 35.9267 46.4629C35.9267 50.7537 39.4215 54.2484 43.7123 54.2484C48.0111 54.2484 51.5059 50.7537 51.5059 46.4629C51.5006 46.3673 51.4953 46.2744 51.49 46.1842L51.482 46.025C51.2512 41.9014 47.844 38.6693 43.7123 38.6693Z" fill="#303030" />
+		<path d="M43.7124 52.3136C40.4884 52.3136 37.8613 49.6866 37.8613 46.4625C37.8613 45.9849 38.2434 45.6027 38.7131 45.6027C39.1908 45.6027 39.5729 45.9849 39.5729 46.4625C39.5729 48.7393 41.4357 50.5941 43.7124 50.5941C45.9972 50.5941 47.852 48.7393 47.852 46.4625C47.852 44.1778 45.9972 42.3229 43.7124 42.3229C43.2348 42.3229 42.8527 41.9408 42.8527 41.4632C42.8527 40.9935 43.2348 40.6034 43.7124 40.6034C46.9445 40.6034 49.5716 43.2305 49.5716 46.4625C49.5716 49.6866 46.9445 52.3136 43.7124 52.3136Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M59.1085 27.3412H44.6916C44.214 27.3412 43.8318 26.9511 43.8318 26.4814V12.0646C43.8318 11.587 44.214 11.2048 44.6916 11.2048H59.1085C59.5782 11.2048 59.9682 11.587 59.9682 12.0646V26.4814C59.9682 26.9511 59.5782 27.3412 59.1085 27.3412ZM45.5513 25.6216H58.2487V12.9244H45.5513V25.6216Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M39.6843 27.5641H5.19046C4.71282 27.5641 4.33069 27.1819 4.33069 26.7123V12.0646C4.33069 11.587 4.71282 11.2048 5.19046 11.2048H39.6843C40.154 11.2048 40.5361 11.587 40.5361 12.0646V26.7123C40.5361 27.1819 40.154 27.5641 39.6843 27.5641ZM6.05021 25.8525H38.8246V12.9244H6.05021V25.8525Z" fill="#FA4D5C" />
+		<path d="M22.4333 27.4606C21.9636 27.4606 21.5735 27.0785 21.5735 26.6008V12.0646C21.5735 11.587 21.9636 11.2048 22.4333 11.2048C22.9109 11.2048 23.293 11.587 23.293 12.0646V26.6008C23.293 27.0785 22.9109 27.4606 22.4333 27.4606Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M59.1404 40.11H56.0596C54.8018 40.11 53.7748 39.083 53.7748 37.8253V35.1027C53.7748 33.8449 54.8018 32.818 56.0596 32.818H59.1404C59.6101 32.818 60.0001 33.208 60.0001 33.6777V39.2502C60.0001 39.7199 59.6101 40.11 59.1404 40.11ZM56.0596 34.5375C55.7491 34.5375 55.4944 34.7922 55.4944 35.1027V37.8253C55.4944 38.1357 55.7491 38.3905 56.0596 38.3905H58.2806V34.5375H56.0596Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M59.1084 46.8448H52.3418C51.8801 46.8448 51.506 46.4865 51.4821 46.0328C51.2512 41.9012 47.844 38.6691 43.7124 38.6691C39.5808 38.6691 36.1736 41.9012 35.9427 46.0328C35.9188 46.4865 35.5447 46.8448 35.0909 46.8448H22.4652C22.0035 46.8448 21.6293 46.4865 21.6054 46.0328C21.3825 41.9012 17.9674 38.6691 13.8358 38.6691C9.7121 38.6691 6.29694 41.9012 6.07404 46.0328C6.0422 46.4865 5.66806 46.8448 5.21429 46.8448H0.859773C0.382129 46.8448 0 46.4547 0 45.985V10.5758C0 6.96963 2.93751 4.0321 6.54372 4.0321H53.4245C57.0307 4.0321 59.9682 6.96963 59.9682 10.5758V45.985C59.9682 46.4547 59.5781 46.8448 59.1084 46.8448ZM53.114 45.1252H58.2487V10.5758C58.2487 7.91695 56.0834 5.75164 53.4245 5.75164H6.54372C3.88484 5.75164 1.71952 7.91695 1.71952 10.5758V45.1252H4.43413C5.08691 40.4841 9.07524 36.9496 13.8358 36.9496C18.6042 36.9496 22.5926 40.4841 23.2453 45.1252H34.3108C34.9635 40.4841 38.9439 36.9496 43.7124 36.9496C48.4809 36.9496 52.4612 40.4841 53.114 45.1252Z" fill="#303030" />
+	</svg>
+);
+
+const GuideIcon = () => (
+	<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fillRule="evenodd" clipRule="evenodd" d="M55.2065 19.1556H33.3131C32.8217 19.1556 32.4285 18.7625 32.4285 18.2711V7.38581C32.4285 6.90257 32.8217 6.50122 33.3131 6.50122H55.2065C55.4931 6.50122 55.7634 6.64047 55.9272 6.86981L59.8342 12.3165C60.0553 12.6196 60.0553 13.0373 59.8342 13.3486L55.9272 18.7871C55.7634 19.0164 55.4931 19.1556 55.2065 19.1556ZM34.1977 17.3865H54.7559L58.0322 12.8326L54.7559 8.27041H34.1977V17.3865Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M26.4985 30.8681H4.76075C4.48227 30.8681 4.21199 30.7289 4.04818 30.4996L0.165859 25.0528C-0.0552863 24.7498 -0.0552863 24.3321 0.165859 24.029L4.04818 18.5823C4.21199 18.3529 4.48227 18.2137 4.76075 18.2137H26.4985C26.9818 18.2137 27.3831 18.6069 27.3831 19.0983V29.9836C27.3831 30.475 26.9818 30.8681 26.4985 30.8681ZM5.21947 29.099H25.614V19.9829H5.21947L1.96784 24.5368L5.21947 29.099Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M33.3132 59.9938H26.4986C26.0071 59.9938 25.614 59.6007 25.614 59.1093V0.890819C25.614 0.399386 26.0071 0.00622559 26.4986 0.00622559H33.3132C33.8046 0.00622559 34.1977 0.399386 34.1977 0.890819V59.1093C34.1977 59.6007 33.8046 59.9938 33.3132 59.9938ZM27.3831 58.2247H32.4285V1.77541H27.3831V58.2247Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M55.2065 43.3425H33.3131C32.8217 43.3425 32.4285 42.9493 32.4285 42.4579V31.5727C32.4285 31.0894 32.8217 30.6963 33.3131 30.6963H55.2065C55.4931 30.6963 55.7634 30.8273 55.9272 31.0649L59.8342 36.5034C60.0553 36.8146 60.0553 37.2241 59.8342 37.5354L55.9272 42.9739C55.7634 43.2114 55.4931 43.3425 55.2065 43.3425ZM34.1977 41.5733H54.7559L58.0322 37.0194L54.7559 32.4572H34.1977V41.5733Z" fill="#303030" />
+	</svg>
+);
+
+const ExcursionIcon = () => (
+	<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fillRule="evenodd" clipRule="evenodd" d="M16.8523 51.9827H5.1522C4.67367 51.9827 4.29083 51.5943 4.29083 51.1089V45.7048C4.29083 45.2275 4.67367 44.8311 5.1522 44.8311H16.8523C17.3229 44.8311 17.7137 45.2275 17.7137 45.7048V51.1089C17.7137 51.5943 17.3229 51.9827 16.8523 51.9827ZM6.01358 50.2352H15.991V46.5785H6.01358V50.2352Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M15.1535 46.5785H6.851C6.37246 46.5785 5.98962 46.1902 5.98962 45.7048V16.7181C5.98962 16.2327 6.37246 15.8444 6.851 15.8444H15.1535C15.632 15.8444 16.0149 16.2327 16.0149 16.7181V45.7048C16.0149 46.1902 15.632 46.5785 15.1535 46.5785ZM7.71237 44.8311H14.2922V17.5837H7.71237V44.8311Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M35.882 51.9827H24.1819C23.7033 51.9827 23.3206 51.5943 23.3206 51.1089V45.7048C23.3206 45.2275 23.7033 44.8311 24.1819 44.8311H35.882C36.3526 44.8311 36.7434 45.2275 36.7434 45.7048V51.1089C36.7434 51.5943 36.3526 51.9827 35.882 51.9827ZM25.0433 50.2352H35.0207V46.5785H25.0433V50.2352Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M34.1832 46.5785H25.8806C25.4021 46.5785 25.0193 46.1902 25.0193 45.7048V16.7181C25.0193 16.2327 25.4021 15.8444 25.8806 15.8444H34.1832C34.6617 15.8444 35.0445 16.2327 35.0445 16.7181V45.7048C35.0445 46.1902 34.6617 46.5785 34.1832 46.5785ZM26.742 44.8311H33.3218V17.5837H26.742V44.8311Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M54.9116 51.9827H43.2115C42.7329 51.9827 42.3501 51.5943 42.3501 51.1089V45.7048C42.3501 45.2275 42.7329 44.8311 43.2115 44.8311H54.9116C55.3821 44.8311 55.7729 45.2275 55.7729 45.7048V51.1089C55.7729 51.5943 55.3821 51.9827 54.9116 51.9827ZM44.0728 50.2352H54.0502V46.5785H44.0728V50.2352Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M53.2128 46.5785H44.9102C44.4317 46.5785 44.0489 46.1902 44.0489 45.7048V16.7181C44.0489 16.2327 44.4317 15.8444 44.9102 15.8444H53.2128C53.6913 15.8444 54.0741 16.2327 54.0741 16.7181V45.7048C54.0741 46.1902 53.6913 46.5785 53.2128 46.5785ZM45.7716 44.8311H52.3514V17.5837H45.7716V44.8311Z" fill="#FA4D5C" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M53.2128 17.5837H6.851C6.37246 17.5837 5.98962 17.1954 5.98962 16.7181V11.2249C5.98962 10.7395 6.37246 10.3512 6.851 10.3512H53.2128C53.6913 10.3512 54.0742 10.7395 54.0742 11.2249V16.7181C54.0742 17.1954 53.6913 17.5837 53.2128 17.5837ZM7.71237 15.8443H52.3514V12.0906H7.71237V15.8443Z" fill="#2E2E2E" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M57.7827 12.0906H2.46441C2.04171 12.0906 1.69078 11.7913 1.61102 11.3706C1.53924 10.958 1.77053 10.5454 2.16134 10.3998L29.8285 0.0525854C30.0252 -0.0175285 30.2219 -0.0175285 30.4187 0.0525854L58.0858 10.3998C58.4766 10.5454 58.7079 10.958 58.6281 11.3706C58.5563 11.7913 58.1974 12.0906 57.7827 12.0906ZM7.28162 10.3513H52.9655L30.1236 1.80004L7.28162 10.3513Z" fill="#2E2E2E" />
+		<path d="M9.45897 14.8413C9.2197 14.8413 9.01498 14.755 8.84483 14.5825C8.76508 14.5015 8.70395 14.4099 8.66141 14.3074C8.61888 14.1995 8.5976 14.0863 8.5976 13.9676C8.5976 13.9137 8.60293 13.857 8.61356 13.7977C8.6242 13.7438 8.64015 13.6899 8.66141 13.6359C8.68268 13.582 8.70925 13.5308 8.74115 13.4822C8.77305 13.4391 8.80762 13.3959 8.84483 13.3528C8.88737 13.3096 8.93255 13.2746 8.98041 13.2476C9.02826 13.2152 9.07877 13.1883 9.13194 13.1667C9.1798 13.1397 9.23298 13.1208 9.29146 13.1101C9.40312 13.0885 9.51476 13.0885 9.62642 13.1101C9.67959 13.1208 9.73277 13.1397 9.78594 13.1667C9.83911 13.1883 9.88696 13.2152 9.9295 13.2476C9.98267 13.2746 10.0279 13.3096 10.0651 13.3528C10.1023 13.3959 10.1395 13.4391 10.1767 13.4822C10.2033 13.5308 10.2299 13.582 10.2565 13.6359C10.2725 13.6899 10.2858 13.7438 10.2964 13.7977C10.3123 13.857 10.3203 13.9137 10.3203 13.9676C10.315 14.0863 10.2937 14.1995 10.2565 14.3074C10.2087 14.4099 10.1449 14.5015 10.0651 14.5825C9.98536 14.6634 9.89228 14.7281 9.78594 14.7766C9.6796 14.8198 9.57062 14.8413 9.45897 14.8413Z" fill="#2E2E2E" />
+		<path d="M42.8685 13.9676C42.8685 13.4822 43.2513 13.0939 43.7298 13.0939C44.2004 13.0939 44.5912 13.4822 44.5912 13.9676C44.5912 14.453 44.2004 14.8413 43.7298 14.8413C43.2513 14.8413 42.8685 14.453 42.8685 13.9676ZM36.0095 13.9676C36.0095 13.4822 36.4003 13.0939 36.8709 13.0939C37.3494 13.0939 37.7322 13.4822 37.7322 13.9676C37.7322 14.453 37.3494 14.8413 36.8709 14.8413C36.4003 14.8413 36.0095 14.453 36.0095 13.9676ZM29.1585 13.9676C29.1585 13.4822 29.5493 13.0939 30.0199 13.0939C30.4904 13.0939 30.8813 13.4822 30.8813 13.9676C30.8813 14.453 30.4904 14.8413 30.0199 14.8413C29.5493 14.8413 29.1585 14.453 29.1585 13.9676ZM22.3076 13.9676C22.3076 13.4822 22.6904 13.0939 23.1689 13.0939C23.6395 13.0939 24.0302 13.4822 24.0302 13.9676C24.0302 14.453 23.6395 14.8413 23.1689 14.8413C22.6904 14.8413 22.3076 14.453 22.3076 13.9676ZM15.4486 13.9676C15.4486 13.4822 15.8394 13.0939 16.3099 13.0939C16.7885 13.0939 17.1713 13.4822 17.1713 13.9676C17.1713 14.453 16.7885 14.8413 16.3099 14.8413C15.8394 14.8413 15.4486 14.453 15.4486 13.9676Z" fill="#2E2E2E" />
+		<path d="M50.5808 14.8413C50.3468 14.8413 50.1448 14.755 49.9746 14.5825C49.8949 14.5015 49.8338 14.4099 49.7912 14.3074C49.7434 14.1995 49.7194 14.0863 49.7194 13.9676C49.7194 13.9137 49.7274 13.857 49.7434 13.7977C49.754 13.7438 49.77 13.6899 49.7912 13.6359C49.8125 13.582 49.8364 13.5308 49.863 13.4822C49.9002 13.4391 49.9374 13.3959 49.9746 13.3528C50.0172 13.3096 50.0624 13.2746 50.1102 13.2476C50.1528 13.2152 50.2006 13.1883 50.2538 13.1667C50.3069 13.1397 50.3601 13.1208 50.4133 13.1101C50.5249 13.0885 50.6366 13.0885 50.7482 13.1101C50.8067 13.1208 50.8626 13.1397 50.9158 13.1667C50.9689 13.1883 51.0168 13.2152 51.0593 13.2476C51.1072 13.2746 51.1523 13.3096 51.1949 13.3528C51.2321 13.3959 51.2667 13.4391 51.2986 13.4822C51.3305 13.5308 51.3571 13.582 51.3783 13.6359C51.3996 13.6899 51.4156 13.7438 51.4262 13.7977C51.4368 13.857 51.4421 13.9137 51.4421 13.9676C51.4421 14.0863 51.4209 14.1995 51.3783 14.3074C51.3358 14.4099 51.2746 14.5015 51.1949 14.5825C51.1098 14.6634 51.0168 14.7281 50.9158 14.7766C50.8094 14.8198 50.6978 14.8413 50.5808 14.8413Z" fill="#2E2E2E" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M59.1386 59.9999H0.861372C0.382839 59.9999 0 59.6116 0 59.1262V51.1089C0 50.6235 0.382839 50.2352 0.861372 50.2352H59.1386C59.6172 50.2352 60 50.6235 60 51.1089V59.1262C60 59.6116 59.6172 59.9999 59.1386 59.9999ZM1.72274 58.2525H58.2773V51.9827H1.72274V58.2525Z" fill="#2E2E2E" />
+	</svg>
+);
+
+const RoadIcon = () => (
+	<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fillRule="evenodd" clipRule="evenodd" d="M15.4307 13.4447H6.27854C2.81732 13.4447 0 10.4309 0 6.72233V5.59926C0 5.38919 0.067078 5.20336 0.201234 5.04176C0.901529 2.09266 3.38882 0 6.27854 0H15.4307C15.9136 0 16.3 0.387832 16.3 0.864536V12.572C16.3 13.0568 15.9136 13.4447 15.4307 13.4447ZM1.73063 6.09211V6.72233C1.73063 9.46944 3.77519 11.6994 6.27854 11.6994H14.5613V1.73716H6.27854C4.07302 1.73716 2.18943 3.46622 1.81111 5.84973C1.79501 5.93592 1.7682 6.0167 1.73063 6.09211Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M59.1306 60H6.80973C3.05068 60 0 56.7277 0 52.704V6.72233C0 6.23755 0.386326 5.84973 0.861239 5.84973C1.3442 5.84973 1.73063 6.23755 1.73063 6.72233C1.73063 9.46943 3.77519 11.6994 6.27854 11.6994H20.2924C20.5419 11.6994 20.7835 11.8126 20.9525 12.0065C21.1135 12.2004 21.1859 12.4589 21.1457 12.7175C21.033 13.407 20.9767 14.0937 20.9767 14.7778C20.9767 20.773 30.5312 37.1344 33.2922 41.7398C36.0531 37.1344 45.6077 20.773 45.6077 14.7778C45.6077 14.0937 45.5487 13.407 45.4307 12.7175C45.3904 12.467 45.4629 12.2085 45.6238 12.0065C45.7929 11.8126 46.0343 11.6994 46.2919 11.6994H59.1306C59.6055 11.6994 60 12.0873 60 12.572V59.1274C60 59.6122 59.6055 60 59.1306 60ZM1.73063 11.3601V52.704C1.73063 55.7662 4.00855 58.2548 6.80973 58.2548H58.2613V13.4447H47.282C47.3195 13.8917 47.3384 14.3361 47.3384 14.7778C47.3384 22.2435 34.572 42.9922 34.0247 43.8729C33.8717 44.1314 33.59 44.2849 33.2922 44.2849C32.9863 44.2849 32.7127 44.1314 32.5517 43.8729C32.0043 42.9922 19.238 22.2435 19.238 14.7778C19.238 14.3361 19.2594 13.8917 19.3024 13.4447H6.27854C4.49159 13.4447 2.88169 12.6448 1.73063 11.3601Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M38.5886 13.4448H27.9876C27.738 13.4448 27.5046 13.3398 27.3436 13.1539C27.1745 12.9681 27.094 12.7257 27.1262 12.4833C27.4563 9.30799 30.1045 6.91638 33.2921 6.91638C36.4716 6.91638 39.1198 9.30799 39.4579 12.4833C39.4821 12.7257 39.4016 12.9681 39.2406 13.1539C39.0715 13.3398 38.8382 13.4448 38.5886 13.4448ZM29.0581 11.6996H37.518C36.9223 9.91397 35.24 8.6616 33.2921 8.6616C31.3361 8.6616 29.6538 9.91397 29.0581 11.6996Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M33.2921 19.3671C29.8711 19.3671 27.0861 16.5715 27.0861 13.1377C27.0861 12.9168 27.0994 12.6987 27.1262 12.4832C27.1665 12.0388 27.5449 11.6995 27.9876 11.6995H38.5886C39.0394 11.6995 39.4096 12.0388 39.4579 12.4832C39.4794 12.6987 39.4902 12.9168 39.4902 13.1377C39.4902 16.5715 36.705 19.3671 33.2921 19.3671ZM28.8327 13.4447C28.9856 15.7716 30.9256 17.6219 33.2921 17.6219C35.6506 17.6219 37.5905 15.7716 37.7434 13.4447H28.8327Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M33.2922 49.3994C24.7277 49.3994 16.0505 47.6138 16.0505 44.2042C16.0505 40.9884 23.6491 39.2917 31.1672 39.0412C31.5052 39.0251 31.787 39.1947 31.948 39.4694C32.4793 40.3825 32.938 41.1581 33.2922 41.7398C33.6383 41.1581 34.0972 40.3825 34.6284 39.4694C34.7894 39.1947 35.0711 39.0331 35.4092 39.0412C42.9354 39.2917 50.5259 40.9884 50.5259 44.2042C50.5259 47.6138 41.8567 49.3994 33.2922 49.3994ZM30.7084 40.8026C22.1117 41.1662 17.7891 43.1619 17.7891 44.2042C17.7891 45.3757 23.2627 47.6623 33.2922 47.6623C43.3137 47.6623 48.7872 45.3757 48.7872 44.2042C48.7872 43.1619 44.4728 41.1662 35.8681 40.8026C34.7653 42.6771 34.0328 43.8648 34.0247 43.8729C33.8718 44.1315 33.59 44.285 33.2922 44.285C32.9863 44.285 32.7127 44.1315 32.5517 43.8729C32.5437 43.8648 31.8112 42.6771 30.7084 40.8026Z" fill="#303030" />
+		<path fillRule="evenodd" clipRule="evenodd" d="M33.2922 44.285C32.9863 44.285 32.7127 44.1315 32.5517 43.8729C32.5437 43.8568 31.6904 42.4832 30.4507 40.3501C26.257 33.1915 19.238 20.3367 19.238 14.7778C19.238 13.9968 19.3024 13.2131 19.4312 12.4266C20.5742 5.61543 26.4019 0.670654 33.2922 0.670654C40.1825 0.670654 46.0102 5.61543 47.1451 12.4266C47.2739 13.2131 47.3384 13.9968 47.3384 14.7778C47.3384 20.3367 40.3193 33.1915 36.1336 40.3501C34.886 42.4832 34.0328 43.8568 34.0247 43.8729C33.8718 44.1315 33.59 44.285 33.2922 44.285ZM33.2922 2.40779C27.2471 2.40779 22.1439 6.74661 21.1457 12.7175C21.033 13.407 20.9767 14.0938 20.9767 14.7778C20.9767 18.5349 24.9692 27.5357 31.948 39.4695C32.4793 40.3825 32.938 41.1581 33.2922 41.7399C33.6383 41.1581 34.0972 40.3825 34.6284 39.4695C41.6072 27.5357 45.6078 18.5349 45.6078 14.7778C45.6078 14.0938 45.5488 13.407 45.4307 12.7175C44.4326 6.74661 39.3292 2.40779 33.2922 2.40779ZM33.2922 19.3671C29.8712 19.3671 27.0862 16.5715 27.0862 13.1377C27.0862 12.9168 27.0995 12.6987 27.1264 12.4832C27.4564 9.30787 30.1046 6.91626 33.2922 6.91626C36.4717 6.91626 39.12 9.30787 39.458 12.4832C39.4795 12.6987 39.4903 12.9168 39.4903 13.1377C39.4903 16.5715 36.7051 19.3671 33.2922 19.3671ZM33.2922 8.66148C30.9981 8.66148 29.0904 10.3825 28.8489 12.661C28.8328 12.8225 28.8249 12.9814 28.8249 13.1377C28.8249 15.61 30.8291 17.6219 33.2922 17.6219C35.7473 17.6219 37.7516 15.61 37.7516 13.1377C37.7516 12.9814 37.7435 12.8225 37.7274 12.661C37.4859 10.3825 35.5782 8.66148 33.2922 8.66148Z" fill="#FA4D5C" />
+	</svg>
+);
