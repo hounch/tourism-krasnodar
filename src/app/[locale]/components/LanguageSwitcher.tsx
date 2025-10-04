@@ -3,10 +3,6 @@
 import { useRouter, usePathname } from 'next/navigation';
 
 const locales = ['ru', 'en'] as const;
-const languageNames = {
-	ru: 'Русский',
-	en: 'English'
-};
 
 export default function LanguageSwitcher() {
 	const router = useRouter();

@@ -1,27 +1,26 @@
 "use client";
 
 interface BlockProps {
-  className?: string;
-  children?: React.ReactNode;
-  [key: string]: any;
+	className?: string;
+	children?: React.ReactNode;
 }
 
 export default function Block({
-  className = "",
-  children,
-  ...props
-}: BlockProps) {
-  return (
-    <div
-      className={`
+	className = "",
+	children,
+	...props
+}: BlockProps & Record<string, unknown>) {
+	return (
+		<div
+			className={`
         bg-[#D4D4D4]
         ${className}
       `}
-      {...props}
-    >
-      {children}
-    </div>
-  );
+			{...props}
+		>
+			{children}
+		</div>
+	);
 }
 
 

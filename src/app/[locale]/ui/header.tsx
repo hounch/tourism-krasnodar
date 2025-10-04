@@ -1,12 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '../components/LanguageSwitcher';
 
 export default function Header() {
-	const t = useTranslations('header');
-
 	return (
 		<>
 			<div className="mx-auto flex py-[0.94rem] px-[7.5rem] bg-[#767676] w-full h-[4.38rem] z-10">

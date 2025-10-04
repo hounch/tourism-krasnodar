@@ -1,4 +1,4 @@
-import { Locale, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { use } from 'react';
 import Main from "./sections/Main";
 
@@ -10,7 +10,7 @@ export default function HomePage({ params }: Props) {
 	const { locale } = use(params);
 
 	// Enable static rendering
-	setRequestLocale(locale as Locale);
+	setRequestLocale(locale);
 
 	return <Main />;
 }

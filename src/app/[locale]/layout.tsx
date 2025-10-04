@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { Locale, hasLocale, NextIntlClientProvider } from 'next-intl';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import '../globals.css';

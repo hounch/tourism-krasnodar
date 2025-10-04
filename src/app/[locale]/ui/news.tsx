@@ -1,18 +1,11 @@
 "use client";
 
-import Image from "next/image";
-
 interface NewsProps {
-	imgUrl?: string;
 	description: string;
-	className?: string;
 }
 
 export default function News({
-	imgUrl = '',
-	description,
-	className = '',
-	...props
+	description
 }: NewsProps) {
 	return (
 		<div className="w-[24rem] h-[21rem] bg-[#D4D4D4] rounded-[1.5rem] p-[1rem] flex flex-col justify-between mr-[1.5rem]">
