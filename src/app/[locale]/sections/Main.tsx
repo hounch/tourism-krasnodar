@@ -189,10 +189,10 @@ export default function Main() {
 				<div className="h-[7.75rem] bg-[#FAFAFA] py-[2rem]">
 					<div className="max-w-[75rem] flex justify-between items-center mx-auto">
 						<p className="text-[0.875rem] text-[#30303080]">{tFooter('copyright')}</p>
-						<div>
-							<p className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataConsent')}</p>
-							<p className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataPolicy')}</p>
-							<p className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataTerms')}</p>
+						<div className='flex flex-col'>
+							<Link href="/agreements/consent" className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataConsent')}</Link>
+							<Link href="/agreements/policy" className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataPolicy')}</Link>
+							<Link href="/agreements/terms" className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataTerms')}</Link>
 						</div>
 					</div>
 				</div>

@@ -5,6 +5,7 @@ interface BannerProps {
 	description?: string;
 	width?: string;
 	height?: string;
+	className?: string;
 	btn?: string;
 }
 
@@ -13,13 +14,14 @@ export default function Banner({
 	description,
 	width = 'auto',
 	height = 'auto',
+	className,
 	btn,
 	...props
 }: BannerProps) {
 	const hasCustomSize = width !== 'auto' || height !== 'auto';
 	return (
 		<div
-			className={`flex flex-col justify-end rounded-[2rem] bg-[#d4d4d4] ${hasCustomSize ? '' : 'h-full w-full'}`}
+			className={`flex flex-col justify-end rounded-[2rem] bg-[#d4d4d4] ${className} ${hasCustomSize ? '' : 'h-full w-full'}`}
 			style={hasCustomSize ? { width, height } : undefined}
 			{...props}>
 			{btn ? (
