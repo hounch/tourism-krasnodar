@@ -26,7 +26,7 @@ export default function LanguageSwitcher() {
 			<select
 				value={currentLocale}
 				onChange={(e) => handleLanguageChange(e.target.value)}
-				className="bg-[#767676] border border-gray-500 rounded text-white text-[0.88rem] px-2 py-1 hover:bg-[#656565] focus:outline-none focus:ring-2 focus:ring-[#FA4D5C] focus:border-transparent appearance-none pr-6 cursor-pointer"
+				className="bg-[#F04A58] rounded text-white text-[0.88rem] px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#FA4D5C] focus:border-transparent appearance-none pr-6 cursor-pointer"
 			>
 				{locales.map((loc) => (
 					<option key={loc} value={loc} className="bg-[#767676] text-white">
