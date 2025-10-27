@@ -30,7 +30,7 @@ export default function Banner({
 						<h4 className="font-bold text-[1.5rem] mb-[0.75rem]">{title}</h4>
 						{description && <p className="text-[1rem] font-400 text-[#30303080]">{description}</p>}
 					</div>
-					<button className='w-[16.88rem] h-[3.375rem] text-[1.125rem] font-400 rounded-[0.5rem] bg-white hover:bg-gray-100 transition-colors'>{btn}</button>
+					<button className='w-[16.88rem] h-[3.375rem] text-[1.125rem] font-400 rounded-[1.5rem] bg-[#FA4D5C] hover:bg-gray-100 transition-colors'>{btn}</button>
 				</div>
 			) : (
 				<div className="w-[15rem] mb-[1.5rem] ml-[1.5rem]">

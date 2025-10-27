@@ -14,8 +14,8 @@ export default function Icon({
   title,
   description,
   className = '',
-  width = '13.56rem',
-  height = '9.75rem',
+  width = '',
+  height = '',
   ...props
 }: IconProps) {
   return (
