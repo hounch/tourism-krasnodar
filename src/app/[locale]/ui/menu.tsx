@@ -4,10 +4,53 @@ import Link from "next/link";
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import Image from "next/image";
+import {useState, useRef, useEffect} from 'react';
+import { Dropdown, DropdownItem } from 'flowbite-react'; 
+
 
 
 export default function Menu() {
 	const t = useTranslations('menu');
+	const p = useTranslations('mainPage');
+	const n = useTranslations('sections.info');
+
+const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
+  const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false);
+  const whatToDoDropdownRef = useRef(null);
+  const secondDropdownRef = useRef(null);
+
+  // Закрытие dropdown при клике вне его области
+  	useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (whatToDoDropdownRef.current && !whatToDoDropdownRef.current.contains(event.target)) {
+        setIsWhatToDoOpen(false);
+      }
+      if (secondDropdownRef.current && !secondDropdownRef.current.contains(event.target)) {
+        setIsSecondDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const toggleWhatToDoDropdown = () => {
+    setIsWhatToDoOpen(!isWhatToDoOpen);
+    // Закрываем второе меню при открытии первого
+    if (!isWhatToDoOpen) {
+      setIsSecondDropdownOpen(false);
+    }
+  };
+
+  const toggleSecondDropdown = () => {
+    setIsSecondDropdownOpen(!isSecondDropdownOpen);
+    // Закрываем первое меню при открытии второго
+    if (!isSecondDropdownOpen) {
+      setIsWhatToDoOpen(false);
+    }
+  };
 
 	return ( 
 		<>
@@ -130,22 +173,108 @@ export default function Menu() {
 					</div>
 						
 					<div className="nav-links flex flex-row items-center">
-						<button data-dropdown-toggle="dropdown" type='button' className="flex flex-row items-center text-black text-[1rem] mr-[2rem] hover:text-[#FA4D5C] transition-colors">
-							{t('whatToDo')}
-							<svg className="ml-[0.25rem]" width="7" height="4" viewBox="0 0 7 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 0.5L3.5 3.5L6.5 0.5" stroke="#303030" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<div className="relative inline-block" ref={whatToDoDropdownRef}>
+              <button
+                className="text-black text-[1rem] mr-[2rem] hover:text-[#FA4D5C] transition-colors cursor-pointer flex items-center focus:outline-none"
+                type="button"
+                onClick={toggleWhatToDoDropdown}
+              >
+                {t('whatToDo')}
+                <svg className={`w-2.5 h-2.5 ms-3 transition-transform duration-200 ${isWhatToDoOpen ? 'rotate-180' : ''}`} 
+				width="7" 
+				height="4" 
+				viewBox="0 0 7 4" 
+				fill="none" 
+				xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.5 0.5L3.5 3.5L6.5 0.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+              </button>
 
-						</button>
+              <div 
+                className={`absolute top-full left-0 mt-2 z-50 bg-white border border-gray-200 rounded-[0.75rem] shadow-lg w-[13.38rem] transition-all duration-300 ${
+                  isWhatToDoOpen 
+                    ? 'opacity-100 visible transform translate-y-0' 
+                    : 'opacity-0 invisible transform -translate-y-2'
+                }`}
+              >
+                <ul className="py-2 text-sm text-black">
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer hover:text-[#FA4D5C] px-4 py-2 ">{p('excursionsAndGuides')}</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{p('attractionsTitle')}</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{p('cultureAndArt')}</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{p('familyLeisure')}</a>
+                  </li>
+				  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{p('sportKrasnodar')}</a>
+                  </li>
+				  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{p('entertainment')}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
 						<Link href="/gastronomy" className="text-black text-[1rem] mr-[2rem] hover:text-[#FA4D5C] transition-colors">
 							{t('gastronomy')}
 						</Link>
 						<Link href="/stay" className="text-black text-[1rem] mr-[2rem] hover:text-[#FA4D5C] transition-colors">
 							{t('whereToStay')}
 						</Link>
-						<Link href="/info" className="text-black text-[1rem] hover:text-[#FA4D5C] transition-colors">
-							{t('information')}
-						</Link>
+						<div className="relative inline-block" ref={secondDropdownRef}>
+              <button
+                className="text-black text-[1rem] mr-[2rem] hover:text-[#FA4D5C] transition-colors cursor-pointer flex items-center focus:outline-none"
+                type="button"
+                onClick={toggleSecondDropdown}
+              >
+                {t('information')}
+				<svg className={`w-2.5 h-2.5 ms-3 transition-transform duration-200 ${isWhatToDoOpen ? 'rotate-180' : ''}`} 
+				width="7" 
+				height="4" 
+				viewBox="0 0 7 4" 
+				fill="none" 
+				xmlns="http://www.w3.org/2000/svg">
+				<path d="M0.5 0.5L3.5 3.5L6.5 0.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+
+              </button>
+
+              <div 
+                className={`absolute top-full left-0 mt-2 z-50 bg-white border border-gray-200 rounded-[0.75rem] shadow-lg w-[18.31rem] transition-all duration-300 ${
+                  isSecondDropdownOpen 
+                    ? 'opacity-100 visible transform translate-y-0' 
+                    : 'opacity-0 invisible transform -translate-y-2'
+                }`}
+              >
+                <ul className="py-2 text-sm text-black">
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer hover:text-[#FA4D5C] px-4 py-2 ">{n('about')}</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{n('news')}</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{n('tic')}</a>
+                  </li>
+                  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{n('contacts')}</a>
+                  </li>
+				  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{n('docs')}</a>
+                  </li>
+				  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{n('professionals')}</a>
+                  </li>
+				  <li>
+                    <a href="#" className="block hover:cursor-pointer px-4 py-2 hover:text-[#FA4D5C]">{n('reviews')}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
 					</div>
 					<div className="map flex flex-row">
 					<Link href="/krasnodar-map" className="map flex items-center my-auto text-[1rem] hover:opacity-80 transition-opacity">
