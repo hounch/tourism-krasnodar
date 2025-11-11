@@ -91,7 +91,7 @@ export default function Main() {
 				</div>
 			</section>
 
-			<section className="travel mx-auto md:w-full md:ml-[2rem] ml-[1rem] items-center max-w-[75rem] text-[#303030] lg:p-0 p-[2rem]">
+			<section className="travel w-full lg:mx-auto md:ml-[2rem] ml-[1rem] max-w-[75rem] text-[#303030] lg:p-0 p-[2rem]">
 				<h2 className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] font-bold">{t('travelTitle')}</h2>
 				<div className="group1 mt-[2.25rem] md:justify-center grid lg:grid-cols-[18rem_18rem_18rem_18rem] lg:grid-rows-[20.19rem_20.19rem] lg:gap-[1rem] md:grid-cols-[21.38rem_21.38rem] md:grid-rows-[21.38rem_21.38rem_21.38rem_21.38rem] md:gap-[1.25rem] grid-cols-[10.22rem_10.22rem] grid-rows-[10.22rem_10.22rem_10.22rem_10.22rem] gap-[1rem]">
 					<Link href="/excursions" className="block hover:opacity-90 transition-opacity"><Banner title={t('excursionsAndGuides')} description={t('excursionsByCity')} bgImg='/2ecaa07b8244b567c3ebbb8887ad2b855a532962.jpg' /></Link>
