@@ -8,17 +8,20 @@ export default function Footer() {
     
     return (
         <>
-        <section className="footer border-t-[1px] border-t-[#AAAAAA] mx-auto max-w-full text-[#303030] mt-[4rem] pt-[4rem] pb-[3rem]">
-				<div className="flex mx-auto mb-[3rem] justify-between max-w-[75rem]">
+        <section className="footer border-t-[1px] border-t-[#AAAAAA] mx-auto max-w-full text-[#303030] mt-[4rem] lg:pt-[4rem] lg:pb-[3rem] p-[2rem]">
+				<div className="flex lg:flex-row md:flex-row flex-col mx-auto mb-[3rem] justify-between max-w-[75rem]">
+					<div className="flex lg:flex-row flex-col">
 					<div className="w-[20rem] flex flex-col justify-between h-[11.94rem]">
 						<p className="mt-[0.75rem] mb-[1rem] text-[1rem] text-[#171717] font-400">{tFooter('copyright')}</p>
                         <p className="mt-[0.75rem] mb-[1rem] text-[1rem] text-[#171717] font-400">{tFooter('description')}</p>
 					    <div className="flex w-[9rem] justify-between"><TgIcon /> <VkIcon /> <OkIcon /></div>
                     </div>
-					<div className="w-[10.5rem] flex flex-col justify-between h-[8.25rem]">
+					<div className="w-[10.5rem] h-[8.25rem] lg:ml-[6rem] lg:mt-0 mt-[6rem]">
 						<Image src={"/72fd05bbbe6e21afb381dd63e6ef31fe9ef8fc7c.png"} alt={""} width={142} height={63} />
 					</div>
-					<div className="w-[10.125rem] flex flex-col justify-between h-[8.25rem]">
+					</div>
+					<div className="flex justify-between">
+					<div className="w-[10.125rem] flex flex-col justify-between h-[8.25rem] mr-[8.63rem]">
 						<Link href="/info/about" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('aboutKrasnodar')}</Link>
 						<Link href="/info/docs" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('documentation')}</Link>
 						<Link href="/info/news" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('newsLink')}</Link>
@@ -29,6 +32,7 @@ export default function Footer() {
 						<Link href="/gastronomy" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('gastronomyLink')}</Link>
 						<Link href="/stay" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('whereToStayLink')}</Link>
 						<Link href="/tourist-map" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('touristMapLink')}</Link>
+					</div>
 					</div>
 				</div>
 			</section>

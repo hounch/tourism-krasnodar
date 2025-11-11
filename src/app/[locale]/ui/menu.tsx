@@ -16,8 +16,10 @@ export default function Menu() {
 
 const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
   const [isSecondDropdownOpen, setIsSecondDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const whatToDoDropdownRef = useRef(null);
   const secondDropdownRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   // Закрытие dropdown при клике вне его области
   	useEffect(() => {
@@ -27,6 +29,9 @@ const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
       }
       if (secondDropdownRef.current && !secondDropdownRef.current.contains(event.target)) {
         setIsSecondDropdownOpen(false);
+      }
+	  if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
       }
     };
 
@@ -51,6 +56,140 @@ const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
       setIsWhatToDoOpen(false);
     }
   };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const MobileMenu = () => (
+    <>
+      {/* Бургер-кнопка */}
+	  <button onClick={toggleMobileMenu} className="burger-menu cursor-pointer lg:hidden flex flex-col justify-center items-center">
+		<svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M24.3428 19.2345H0.592755C-0.0321666 19.1953 -0.299057 18.1031 0.592755 18.047H24.3428C24.3674 18.0485 24.3923 18.0503 24.417 18.0518C24.9965 18.1622 25.2108 19.1799 24.3428 19.2345ZM24.3428 13.219H0.592755C-0.0155416 13.1807 -0.323698 12.089 0.592755 12.0315H24.3428C24.3674 12.0329 24.3923 12.0344 24.417 12.0359C24.9965 12.1466 25.2108 13.1643 24.3428 13.219ZM24.3428 7.20308H0.592755C-0.0244478 7.16448 -0.299057 6.07169 0.592755 6.01558H24.3428C24.3674 6.01736 24.3923 6.01884 24.417 6.02033C25.0039 6.13225 25.1886 7.14994 24.3428 7.20308ZM24.3428 1.1875H0.592755C0.0797553 1.15514 0.0568959 0.953266 0.00939588 0.705078C-0.0559166 0.362188 0.227896 0.0228594 0.592755 0H24.3428C24.3674 0.00148437 24.3923 0.00326585 24.417 0.00475022C24.922 0.100938 24.9193 0.304 24.9353 0.556344C24.9555 0.878156 24.6824 1.16613 24.3428 1.1875Z" fill="black"/>
+		</svg>
+		<p className="mt-[0.3rem]">{p('menu')}</p>
+	</button>
+
+      {/* Мобильное меню */}
+      <div 
+        ref={mobileMenuRef}
+        className={`fixed top-0 left-0 w-full h-full bg-white z-50 transform transition-transform duration-300 ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        } lg:hidden`}
+      >
+        <div className="pt-20 px-6 pb-6 h-full overflow-y-auto">
+          {/* Заголовок и кнопка закрытия */}
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-xl font-semibold">Меню</h2>
+            <button 
+              onClick={closeMobileMenu}
+              className="p-2 rounded-lg hover:bg-gray-100"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+          {/* Пункты меню */}
+          <div className="space-y-4">
+            {/* Чем заняться */}
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-medium mb-3 text-[#FA4D5C]">{t('whatToDo')}</h3>
+              <div className="space-y-2 pl-4">
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {p('excursionsAndGuides')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {p('attractionsTitle')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {p('cultureAndArt')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {p('familyLeisure')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {p('sportKrasnodar')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {p('entertainment')}
+                </a>
+              </div>
+            </div>
+
+            {/* Гастрономия */}
+            <Link 
+              href="/gastronomy" 
+              className="block py-3 border-b border-gray-200 hover:text-[#FA4D5C] transition-colors"
+              onClick={closeMobileMenu}
+            >
+              {t('gastronomy')}
+            </Link>
+
+            {/* Где остановиться */}
+            <Link 
+              href="/stay" 
+              className="block py-3 border-b border-gray-200 hover:text-[#FA4D5C] transition-colors"
+              onClick={closeMobileMenu}
+            >
+              {t('whereToStay')}
+            </Link>
+
+            {/* Информация */}
+            <div className="border-b border-gray-200 pb-4">
+              <h3 className="text-lg font-medium mb-3 text-[#FA4D5C]">{t('information')}</h3>
+              <div className="space-y-2 pl-4">
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {n('about')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {n('news')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {n('tic')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {n('contacts')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {n('docs')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {n('professionals')}
+                </a>
+                <a href="#" className="block py-2 hover:text-[#FA4D5C] transition-colors" onClick={closeMobileMenu}>
+                  {n('reviews')}
+                </a>
+              </div>
+            </div>
+
+            {/* Карта туриста */}
+            <Link 
+              href="/tourist-map" 
+              className="block py-3 border-b border-gray-200 hover:text-[#FA4D5C] transition-colors flex items-center"
+              onClick={closeMobileMenu}
+            >
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-3">
+                <path fillRule="evenodd" clipRule="evenodd" d="M8.22969 7.17049H3.34856C1.50257 7.17049 0 5.56316 0 3.58524V2.98627C0 2.87424 0.035775 2.77512 0.107325 2.68894C0.480815 1.11609 1.80737 0 3.34856 0H8.22969C8.48727 0 8.69331 0.206844 8.69331 0.461086V6.70509C8.69331 6.96364 8.48727 7.17049 8.22969 7.17049ZM0.923004 3.24913V3.58524C0.923004 5.05037 2.01344 6.2397 3.34856 6.2397H7.76601V0.926485H3.34856C2.17228 0.926485 1.16769 1.84865 0.965924 3.11986C0.957338 3.16582 0.943038 3.20891 0.923004 3.24913Z" fill="#303030"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M31.5363 32H3.63186C1.62703 32 0 30.2548 0 28.1088V3.58524C0 3.32669 0.206041 3.11986 0.459327 3.11986C0.716907 3.11986 0.923004 3.32669 0.923004 3.58524C0.923004 5.05037 2.01344 6.2397 3.34856 6.2397H10.8226C10.9557 6.2397 11.0845 6.30003 11.1747 6.40345C11.2605 6.50687 11.2992 6.64477 11.2777 6.78266C11.2176 7.15038 11.1876 7.51666 11.1876 7.8815C11.1876 11.0789 16.2833 19.805 17.7558 22.2612C19.2283 19.805 24.3241 11.0789 24.3241 7.8815C24.3241 7.51666 24.2927 7.15038 24.2297 6.78266C24.2082 6.64908 24.2469 6.51118 24.3327 6.40345C24.4229 6.30003 24.5516 6.2397 24.689 6.2397H31.5363C31.7896 6.2397 32 6.44654 32 6.70509V31.5346C32 31.7932 31.7896 32 31.5363 32ZM0.923004 6.05871V28.1088C0.923004 29.742 2.13789 31.0692 3.63186 31.0692H31.0727V7.17049H25.217C25.2371 7.40893 25.2471 7.64593 25.2471 7.8815C25.2471 11.8632 18.4384 22.9292 18.1465 23.3989C18.0649 23.5368 17.9147 23.6186 17.7558 23.6186C17.5927 23.6186 17.4468 23.5368 17.3609 23.3989C17.069 22.9292 10.2603 11.8632 10.2603 7.8815C10.2603 7.64593 10.2717 7.40893 10.2946 7.17049H3.34856C2.39551 7.17049 1.5369 6.74387 0.923004 6.05871Z" fill="#303030"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M20.5806 7.17049H14.9267C14.7936 7.17049 14.6691 7.11446 14.5833 7.01535C14.4931 6.91624 14.4502 6.78697 14.4673 6.65769C14.6434 4.96418 16.0558 3.68866 17.7558 3.68866C19.4515 3.68866 20.8639 4.96418 21.0442 6.65769C21.0571 6.78697 21.0142 6.91624 20.9283 7.01535C20.8382 7.11446 20.7137 7.17049 20.5806 7.17049ZM15.4977 6.2397H20.0096C19.6919 5.28737 18.7947 4.61944 17.7558 4.61944C16.7126 4.61944 15.8154 5.28737 15.4977 6.2397Z" fill="#303030"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M17.7558 10.3291C15.9313 10.3291 14.4459 8.83814 14.4459 7.00673C14.4459 6.88895 14.453 6.7726 14.4674 6.65769C14.4888 6.42069 14.6906 6.2397 14.9267 6.2397H20.5806C20.821 6.2397 21.0185 6.42069 21.0443 6.65769C21.0557 6.7726 21.0614 6.88895 21.0614 7.00673C21.0614 8.83814 19.576 10.3291 17.7558 10.3291ZM15.3775 7.17049C15.459 8.41153 16.4937 9.39833 17.7558 9.39833C19.0137 9.39833 20.0483 8.41153 20.1298 7.17049H15.3775Z" fill="#303030"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M17.7559 26.3464C13.1881 26.3464 8.5603 25.394 8.5603 23.5756C8.5603 21.8605 12.6128 20.9556 16.6225 20.822C16.8028 20.8134 16.9531 20.9039 17.039 21.0504C17.3223 21.5373 17.567 21.951 17.7559 22.2612C17.9405 21.951 18.1852 21.5373 18.4685 21.0504C18.5544 20.9039 18.7046 20.8177 18.8849 20.822C22.8989 20.9556 26.9472 21.8605 26.9472 23.5756C26.9472 25.394 22.3236 26.3464 17.7559 26.3464ZM16.3778 21.7614C11.7929 21.9553 9.48755 23.0197 9.48755 23.5756C9.48755 24.2004 12.4068 25.4199 17.7559 25.4199C23.1006 25.4199 26.0199 24.2004 26.0199 23.5756C26.0199 23.0197 23.7189 21.9553 19.1297 21.7614C18.5415 22.7611 18.1508 23.3946 18.1465 23.3989C18.065 23.5368 17.9147 23.6186 17.7559 23.6186C17.5927 23.6186 17.4468 23.5368 17.3609 23.3989C17.3566 23.3946 16.966 22.7611 16.3778 21.7614Z" fill="#303030"/>
+                <path fillRule="evenodd" clipRule="evenodd" d="M17.7558 23.6186C17.5927 23.6186 17.4467 23.5368 17.3609 23.3989C17.3566 23.3903 16.9015 22.6577 16.2404 21.5201C14.0037 17.7021 10.2603 10.8462 10.2603 7.8815C10.2603 7.46495 10.2946 7.04695 10.3633 6.62753C10.9729 2.99488 14.081 0.35767 17.7558 0.35767C21.4306 0.35767 24.5387 2.99488 25.144 6.62753C25.2127 7.04695 25.2471 7.46495 25.2471 7.8815C25.2471 10.8462 21.5036 17.7021 19.2712 21.5201C18.6058 22.6577 18.1508 23.3903 18.1465 23.3989C18.0649 23.5368 17.9146 23.6186 17.7558 23.6186ZM17.7558 1.28414C14.5318 1.28414 11.81 3.59818 11.2777 6.78266C11.2176 7.15038 11.1876 7.51666 11.1876 7.8815C11.1876 9.88527 13.3169 14.6857 17.0389 21.0504C17.3222 21.5373 17.5669 21.951 17.7558 22.2612C17.9404 21.951 18.1851 21.5373 18.4685 21.0504C22.1905 14.6857 24.3241 9.88527 24.3241 7.8815C24.3241 7.51666 24.2926 7.15038 24.2297 6.78266C23.6973 3.59818 20.9756 1.28414 17.7558 1.28414ZM17.7558 10.3291C15.9313 10.3291 14.4459 8.83814 14.4459 7.00674C14.4459 6.88895 14.453 6.77261 14.4674 6.65769C14.6434 4.96418 16.0558 3.68866 17.7558 3.68866C19.4515 3.68866 20.8639 4.96418 21.0443 6.65769C21.0557 6.77261 21.0614 6.88895 21.0614 7.00674C21.0614 8.83814 19.576 10.3291 17.7558 10.3291ZM17.7558 4.61945C16.5323 4.61945 15.5149 5.53731 15.3861 6.7525C15.3775 6.83868 15.3732 6.92343 15.3732 7.00674C15.3732 8.32535 16.4421 9.39833 17.7558 9.39833C19.0652 9.39833 20.1341 8.32535 20.1341 7.00674C20.1341 6.92343 20.1298 6.83868 20.1213 6.7525C19.9925 5.53731 18.975 4.61945 17.7558 4.61945Z" fill="#FA4D5C"/>
+              </svg>
+              {t('touristMap')}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 
 	return ( 
 		<>
@@ -166,12 +305,12 @@ const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
 							/>
 						</svg>
 					</a>
-					<div className="emblem flex flex-row items-center">
+					<div className="emblem lg:flex md:flex hidden flex-row items-center">
 						<Image src="/emblem.png" width={32} height={32} alt="Emblem" className="w-[2rem] h-[2rem] object-cover mr-[0.75rem]"/>
 						<p className="text-[0.88rem] max-w-[11.94rem]">{p('ticTitle')}</p>
 					</div>
 						
-					<div className="nav-links flex flex-row items-center">
+					<div className="nav-links lg:flex md:hidden hidden flex-row items-center">
 <div className="relative inline-block" ref={whatToDoDropdownRef}>
               <button
                 className="text-black text-[1rem] mr-[2rem] hover:text-[#FA4D5C] transition-colors cursor-pointer flex items-center focus:outline-none"
@@ -275,7 +414,7 @@ const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
               </div>
             </div>
 					</div>
-					<div className="map flex flex-row">
+					<div className="map lg:flex md:hidden hidden flex-row">
 					<Link href="/tourist-map" className="map flex items-center my-auto text-[1rem] hover:opacity-80 transition-opacity">
 						<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-[0.75rem]">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.22969 7.17049H3.34856C1.50257 7.17049 0 5.56316 0 3.58524V2.98627C0 2.87424 0.035775 2.77512 0.107325 2.68894C0.480815 1.11609 1.80737 0 3.34856 0H8.22969C8.48727 0 8.69331 0.206844 8.69331 0.461086V6.70509C8.69331 6.96364 8.48727 7.17049 8.22969 7.17049ZM0.923004 3.24913V3.58524C0.923004 5.05037 2.01344 6.2397 3.34856 6.2397H7.76601V0.926485H3.34856C2.17228 0.926485 1.16769 1.84865 0.965924 3.11986C0.957338 3.16582 0.943038 3.20891 0.923004 3.24913Z" fill="#303030"/>
@@ -290,6 +429,9 @@ const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
 					</div>
 					<div className="switcher flex items-center">
 						<LanguageSwitcher />
+					</div>
+					<div className="lg:hidden flex items-center">
+						<MobileMenu />
 					</div>
 				</div>
 			</nav>

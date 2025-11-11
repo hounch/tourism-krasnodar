@@ -15,15 +15,15 @@ export default function Carousel({ children: slides }) {
     return ( 
         <>
             <div className="overflow-hidden relative h-[60vh] max-w-[1440px] rounded-[1.25rem]">
-                <div className="flex transition-transform ease-out duration-500 z-0" style={{ transform: `translateX(-${curr * 100}%)` }}>{slides}</div>
+                <div className="flex transition-transform ease-out duration-500 z-0" style={{ transform: `translateX(-${curr * 100}%)`, objectFit: `cover`}}>{slides}</div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20 pointer-events-none z-10"></div>
-				<div className="intro absolute inset-1 flex justify-between p-[2.5rem] z-20">
-							<h1 className="text-[#FFFFFF] font-bold text-[3.75rem] max-w-[40rem]">
+				<div className="intro absolute inset-1 flex lg:flex-row md:flex-row flex-col justify-between p-[2.5rem] z-20">
+							<h1 className="text-[#FFFFFF] font-bold lg:text-[3.75rem] md:text-[3.75rem] text-[1.88rem] max-w-[40rem]">
 								{t('welcomeTitle')}
 							</h1>
 							<Block className="w-[14.13rem] h-[8.06rem] bg-white rounded-[0.75rem]" />
 						</div>
-                <div className="absolute inset-0 flex items-center justify-between p-[2.5rem] z-30">
+                <div className="absolute hidden inset-0 lg:flex md:flex items-center justify-between p-[2.5rem] z-30">
                     <button onClick={prev} className="arrow-left align-center mt-[1.38rem] w-[3.75rem] bg-white h-[3.75rem] rounded-[0.5rem] hover:opacity-90">
                         <svg
 									className="m-auto"

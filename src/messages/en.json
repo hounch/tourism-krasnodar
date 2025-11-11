@@ -187,7 +187,9 @@
 		"allNews": "All News",
 		"projectsTitle": "TIC Projects",
 		"projectName": "Project Name",
-		"learnAboutProject": "Learn about the project"
+		"learnAboutProject": "Learn about the project",
+		"menu": "Меню"
+
 	},
 	"footerPage": {
 		"description": "350000, Russia, Krasnodar, Gogol, 76. Tel.: +7 861 218-97-77; e mail: tic@krd.ru",

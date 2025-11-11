@@ -11,6 +11,8 @@ import News from "../ui/news";
 import Link from 'next/link';
 import Carousel from '../ui/Carousel';
 import Footer from '../ui/Footer';
+import { useState } from 'react';
+
 
 export default function Main() {
 	const t = useTranslations('mainPage');
@@ -25,95 +27,95 @@ export default function Main() {
 					<div className="big-card flex items-center justify-center relative mb-[1rem]">
 						<Carousel>
 							{slides.map((s) => (
-							<img src={s} className='object-cover w-full flex-shrink-0' />
+							<img src={s} className='object-cover' />
 							))}
 						</Carousel>
 					</div>
 				</div>
 				<div className="cards md:w-full max-w-[1440px] justify-center flex mx-auto mt-[1.25rem]">
 					<Link href="/krasnodar-map" className="relative w-[43.375rem] h-[17.06rem] mr-[1rem] rounded-[1.5rem] bg-[url(/map_gif.gif)] bg-cover bg-center hover:opacity-90 transition-opacity cursor-pointer">
-						<h4 className="text-[#FFFFFF] font-bold text-[1.5rem] absolute mt-[13.56rem] ml-[1.5rem]">
+						<h4 className="text-[#FFFFFF] font-bold lg:text-[1.5rem] md:text-[1.5rem] text-[1.125rem] absolute mt-[13.56rem] ml-[1.5rem]">
 							{t('mapCard')}
 						</h4>
 					</Link>
 					<Link href="/info/news" className="relative w-[43.375rem] h-[17.06rem] rounded-[1.5rem] bg-[url(/news.png)] bg-cover bg-top hover:opacity-90 transition-opacity cursor-pointer">
-						<h4 className="text-[#FFFFFF] font-bold text-[1.5rem] absolute mt-[13.56rem] ml-[1.5rem]">
+						<h4 className="text-[#FFFFFF] font-bold lg:text-[1.5rem] md:text-[1.5rem] text-[1.125rem] absolute mt-[13.56rem] ml-[1.5rem]">
 							{t('newsCard')}
 						</h4>
 					</Link>
 				</div>
 			</section>
 
-			<section className="introContainer max-w-[1440px] md:w-full mt-[4rem] py-[4rem] px-[7.5rem] md:p-[2rem] justify-center items-center flex md:flex-col lg:flex-row flex-col mx-auto mb-[4rem]">
-				<div className="text w-[44.25rem] mr-[2.63rem]">
-					<h2 className="text-[3rem] font-bold mb-[2.25rem] text-[#303030]">{t('ticTitle')}</h2>
+			<section className="introContainer lg:max-w-[1440px] w-full mt-[4rem] lg:px-[7.5rem] p-[1rem] md:p-[2rem] justify-center items-center flex lg:flex-row flex-col mx-auto mb-[4rem]">
+				<div className="text lg:w-[44.25rem] md:w-full md:ml-[2rem] ml-[1rem] mr-[2.63rem] lg:mb-0 md:mb-0 mb-[1.5rem] lg:ml-0">
+					<h2 className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] font-bold mb-[2.25rem] text-[#303030]">{t('ticTitle')}</h2>
 					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription1')}</p>
 					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription2')}</p>
 					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription3')}</p>
 					<p className="text-[1.125rem] font-400">{t('ticDescription4')}</p>
 				</div>
-				<div className="icons flex flex-col lg:w-[28.13rem] md:w-full mt-[0.75rem] md:mt-[3.38rem]">
-					<div className="group1 flex md:justify-center">
+				<div className="icons flex flex-col lg:w-[28.13rem] w-full mt-[0.75rem] md:mt-[3.38rem]">
+					<div className="group1 flex justify-center ">
 						<Icon
 							img={<TravelIcon />}
 							title={t('transport')}
 							description={t('transportDesc')}
 							width=''
 							height='9.75rem'
-							className="mb-[1.5rem] mr-[1rem] lg:w-[13.56rem] md:w-[21.5rem]" />
+							className="mb-[1.5rem] mr-[1rem] lg:w-[13.56rem] md:w-[21.5rem] w-[10.19rem]" />
 						<Icon
 							img={<GuideIcon />}
 							title={t('guides')}
 							description={t('guidesDesc')}
 							width=''
 							height='9.75rem'
-							className="mb-[1.5rem] lg:w-[13.56rem] md:w-[21.5rem]" />
+							className="mb-[1.5rem] lg:w-[13.56rem] md:w-[21.5rem] w-[10.19rem]" />
 					</div>
-					<div className="group2 flex md:justify-center">
+					<div className="group2 flex justify-center">
 						<Icon
 							img={<ExcursionIcon />}
 							title={t('excursions')}
 							description={t('excursionsDesc')}
 							width=''
 							height='9.75rem'
-							className="mr-[1rem] lg:w-[13.56rem] md:w-[21.5rem]" />
+							className="mr-[1rem] lg:w-[13.56rem] md:w-[21.5rem] w-[10.19rem]" />
 						<Icon
 							img={<RoadIcon />}
 							title={t('routes')}
 							description={t('routesDesc')} 
 							width=''
 							height='9.75rem'
-							className='lg:w-[13.56rem] md:w-[21.5rem]' />
+							className='lg:w-[13.56rem] md:w-[21.5rem] w-[10.19rem]' />
 					</div>
-					<Link href="/info/tic" className="bg-[#FA4D5C] hover:bg-[#C4C4C4] transition-colors rounded-[1.5rem] lg:w-[28.125rem] md:w-full h-[3.125rem] text-[#ffffff] flex items-center justify-center cursor-pointer">{t('openWithUs')}</Link>
+					<Link href="/info/tic" className="bg-[#FA4D5C] hover:bg-[#C4C4C4] transition-colors rounded-[1.5rem] lg:w-[28.125rem] md:w-full mx-auto w-[21.44rem] h-[3.125rem] text-[#ffffff] flex items-center justify-center cursor-pointer lg:mt-0 md:mt-0 mt-[1rem]">{t('openWithUs')}</Link>
 				</div>
 			</section>
 
-			<section className="travel mx-auto items-center max-w-[75rem] text-[#303030] md:p-[2rem]">
-				<h2 className="text-[3rem] font-bold">{t('travelTitle')}</h2>
-				<div className="group1 mt-[2.25rem] md:justify-center grid lg:grid-cols-[18rem_18rem_18rem_18rem] lg:grid-rows-[20.19rem_20.19rem] lg:gap-[1rem] md:grid-cols-[21.38rem_21.38rem] md:grid-rows-[21.38rem_21.38rem_21.38rem_21.38rem] md:gap-[1.25rem]">
-					<Link href="/excursions" className="block hover:opacity-90 transition-opacity"><Banner title={t('excursionsAndGuides')} description={t('excursionsByCity')} /></Link>
-					<Link href="/culture" className="block hover:opacity-90 transition-opacity"><Banner title={t('cultureAndArt')} description={t('cultureDesc')} /></Link>
-					<Link href="/stay" className="block hover:opacity-90 transition-opacity"><Banner title={t('whereToStayTitle')} description={t('whereToStayDesc')} /></Link>
-					<Link href="/gastronomy" className="lg:col-start-3 lg:row-start-2 block hover:opacity-90 transition-opacity"><Banner title={t('gastronomyTitle')} description={t('gastronomyDesc')} /></Link>
-					<Link href="/attractions" className="col-span-2 md:row-start-2 block hover:opacity-90 transition-opacity"><Banner title={t('attractionsTitle')} description={t('attractionsDesc')} /></Link>
-					<Link href="/attractions/parks" className=" lg:row-span-2 lg:col-start-4 md:col-span-2 block hover:opacity-90 transition-opacity"><Banner title={t('greenCity')} description={t('greenCityDesc')} /></Link>
+			<section className="travel mx-auto md:w-full md:ml-[2rem] ml-[1rem] items-center max-w-[75rem] text-[#303030] lg:p-0 p-[2rem]">
+				<h2 className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] font-bold">{t('travelTitle')}</h2>
+				<div className="group1 mt-[2.25rem] md:justify-center grid lg:grid-cols-[18rem_18rem_18rem_18rem] lg:grid-rows-[20.19rem_20.19rem] lg:gap-[1rem] md:grid-cols-[21.38rem_21.38rem] md:grid-rows-[21.38rem_21.38rem_21.38rem_21.38rem] md:gap-[1.25rem] grid-cols-[10.22rem_10.22rem] grid-rows-[10.22rem_10.22rem_10.22rem_10.22rem] gap-[1rem]">
+					<Link href="/excursions" className="block hover:opacity-90 transition-opacity"><Banner title={t('excursionsAndGuides')} description={t('excursionsByCity')} bgImg='/2ecaa07b8244b567c3ebbb8887ad2b855a532962.jpg' /></Link>
+					<Link href="/culture" className="block hover:opacity-90 transition-opacity"><Banner title={t('cultureAndArt')} description={t('cultureDesc')} bgImg='/31c39cdc4f9c57bb40ed278a61d0a91ed98b75da.jpg' /></Link>
+					<Link href="/stay" className="block hover:opacity-90 transition-opacity"><Banner title={t('whereToStayTitle')} description={t('whereToStayDesc')} bgImg='/0d51a11c3a88f3208804a67c581321adcacb23ea.jpg' /></Link>
+					<Link href="/gastronomy" className="lg:col-start-3 lg:row-start-2 block hover:opacity-90 transition-opacity"><Banner title={t('gastronomyTitle')} description={t('gastronomyDesc')} bgImg='/513a0077aa3414c1160550c435f4a46ed67cdb08.jpg' /></Link>
+					<Link href="/attractions" className="col-span-2 row-start-2 block hover:opacity-90 transition-opacity"><Banner title={t('attractionsTitle')} description={t('attractionsDesc')} bgImg='/9c70cf3d2cb98eed1812289d08f03dbf1e3304ac.jpg' /></Link>
+					<Link href="/attractions/parks" className=" lg:row-span-2 lg:col-start-4 col-span-2 block hover:opacity-90 transition-opacity"><Banner title={t('greenCity')} description={t('greenCityDesc')} bgImg='/1cbf9f76b7c8572aca3010e0d84a1bbb96aa7734.jpg' /></Link>
 				</div>
-				<h2 className="text-[3rem] font-bold mt-[6.25rem]">{t('travelTitle2')}</h2>
-				<div className="group2 mt-[4rem] grid lg:grid-cols-[18rem_18rem_18rem_18rem] lg:grid-rows-[20.19rem] lg:gap-[1rem] md:justify-center md:grid-cols-[21.38rem_21.38rem] md:grid-rows-[21.38rem_21.38rem] md:gap-[1.25rem]">
-					<Link href="/family" className="block hover:opacity-90 transition-opacity"><Banner title={t('familyLeisure')} /></Link>
-					<Link href="/sports" className="block hover:opacity-90 transition-opacity"><Banner title={t('sportKrasnodar')} /></Link>
-					<Link href="/entertainment" className="block hover:opacity-90 transition-opacity"><Banner title={t('entertainment')} /></Link>
-					<Link href="/entertainment" className="block hover:opacity-90 transition-opacity"><Banner title={t('relaxAndSpa')} /></Link>
+				<h2 className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] font-bold lg:mt-[6.25rem] md:mt-[6.25rem] mt-[3rem]">{t('travelTitle2')}</h2>
+				<div className="group2 mt-[4rem] grid lg:grid-cols-[18rem_18rem_18rem_18rem] lg:grid-rows-[20.19rem] lg:gap-[1rem] md:justify-center md:grid-cols-[21.38rem_21.38rem] md:grid-rows-[21.38rem_21.38rem] md:gap-[1.25rem] grid-cols-[10.22rem_10.22rem] grid-rows-[10.22rem_10.22rem] gap-[1rem]">
+					<Link href="/family" className="block hover:opacity-90 transition-opacity"><Banner title={t('familyLeisure')} bgImg='/ac47929a226912df98784ff9d462d0f7dcdaea5b.png' /></Link>
+					<Link href="/sports" className="block hover:opacity-90 transition-opacity"><Banner title={t('sportKrasnodar')} bgImg='/0f9af87b1eff4c514402a8c5d64379fede779382.jpg' /></Link>
+					<Link href="/entertainment" className="block hover:opacity-90 transition-opacity"><Banner title={t('entertainment')} bgImg='/0562891b3eff7931630d664b6d6acaa3975f1ca2.jpg' /></Link>
+					<Link href="/entertainment" className="block hover:opacity-90 transition-opacity"><Banner title={t('relaxAndSpa')} bgImg='/b6e1f5f5e135e7915879f4f9ad792f28aa7a4ac6.png' /></Link>
 				</div>
 			</section>
 
-			<section className="news mx-auto max-w-[75rem] md:w-full text-[#303030] mt-[8rem] md:p-[2rem] lg:p-0">
+			<section className="news mx-auto max-w-[75rem] w-full text-[#303030] lg:mt-[8rem] md:mt-[8rem] mt-[3rem] p-[2rem] lg:p-0">
 				<div className="flex items-center">
-					<h2 className="text-[3rem] font-bold">{t('newsTitle')}</h2>
+					<h2 className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] font-bold">{t('newsTitle')}</h2>
 					<Link href="/info/news" className="bg-[#FA4D5C] text-[#FFFFFF] hover:bg-[#C4C4C4] transition-colors ml-auto rounded-[1.5rem] w-[9.19rem] h-[3.31rem] flex items-center justify-center cursor-pointer">{t('allNews')}</Link>
 				</div>
-				<div className="mt-[2.25rem] flex md:overflow-hidden">
+				<div className="mt-[2.25rem] flex overflow-x-auto">
 					<Link href="/info/news" className="hover:opacity-90 transition-opacity">
 						<News description="Курс по созданию и продвижению модных брендов пройдёт в Краснодаре." date="13.10.2025" />
 					</Link>
@@ -129,15 +131,15 @@ export default function Main() {
 				</div>
 			</section>
 
-			<section className="projects mx-auto lg:max-w-[75rem] md:w-full text-[#303030] mt-[8rem] md:p-[2rem] lg:p-0">
-				<h2 className="text-[3rem] font-bold">{t('projectsTitle')}</h2>
-				<Link href="/tic-projects" className="block mt-[2.25rem] text-[#FFFFFF] hover:opacity-90 transition-opacity"><Banner title={t('projectName')} btn={t('learnAboutProject')} height="20.19rem" /></Link>
+			<section className="projects mx-auto lg:max-w-[75rem] md:w-full text-[#303030] lg:mt-[8rem] md:mt-[8rem] mt-[3rem] p-[2rem] lg:p-0">
+				<h2 className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] font-bold">{t('projectsTitle')}</h2>
+				<Link href="/tic-projects" className="block mt-[2.25rem] text-[#FFFFFF] hover:opacity-90 transition-opacity"><Banner title={t('projectName')} btn={t('learnAboutProject')} bgImg='/4e797660e7af9e8ce43cd647392e6fa28a389cae.jpg' height="20.19rem" /></Link>
 			</section>
 
-			<section className="gosuslugi mx-auto lg:max-w-[75rem] md:w-full md:p-[2rem] lg:p-0 text-[#303030] mt-[8rem]">
-				<div className="flex justify-between">
+			<section className="gosuslugi mx-auto lg:max-w-[75rem] w-full p-[2rem] lg:p-0 text-[#303030] lg:mt-[8rem] md:mt-[8rem] mt-[3rem]">
+				<div className="flex lg:flex-row md:flex-row flex-col justify-center lg:justify-between">
 					<Image src={"/Mini_app_gosuslugi_VK.jpg"} alt={""} width={551} height={273} className="mr-[2.81rem] md:w-[21.5rem] md:h-[22.75rem] lg:w-[34.43rem] lg:h-[17.06rem]" />
-					<Image src={"/banner-gov.jpg"} alt={""} width={604} height={273} className='md:w-[21.5rem] md:h-[22.75rem] lg:w-[34.43rem] lg:h-[17.06rem]' />
+					<Image src={"/banner-gov.jpg"} alt={""} width={604} height={273} className='md:w-[21.5rem] md:h-[22.75rem] lg:w-[34.43rem] lg:h-[17.06rem] lg:mt-0 md:mt-0 mt-[1rem]' />
 				</div>
 			</section>
 

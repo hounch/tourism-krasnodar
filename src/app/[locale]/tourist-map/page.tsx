@@ -9,60 +9,60 @@ export default function Page() {
 	return (
 		<>
 		<Menu />
-		<section className="main container py-[4rem] px-[7.5rem] md:w-full lg:max-w-[75rem] mx-auto lg:py-[4rem] lg:px-0">
-			<div className='flex h-[22.31rem]'>
-				<div className='intro mr-[2.63rem] w-[37.06rem]'>
-					<h1 className="text-[3rem]/[3.5rem] font-bold font-700 mb-[2.25rem]">{t('greetings1')} <span className='text-[#FA4D5C]'>{t('map')}</span> {t('greetings2')}</h1>
+		<section className="main lg:py-[4rem] md:py-[3rem] py-[1.5rem] lg:px-0 md:px-[2rem] px-[1rem] w-full lg:max-w-[75rem] mx-auto">
+			<div className='flex lg:flex-row flex-col lg:h-[22.31rem]'>
+				<div className='intro mr-[2.63rem] lg:w-[37.06rem]'>
+					<h1 className="lg:text-[3rem]/[3.5rem] md:text-[3rem]/[3.5rem] text-[1.5rem] font-bold font-700 mb-[2.25rem]">{t('greetings1')} <span className='text-[#FA4D5C]'>{t('map')}</span> {t('greetings2')}</h1>
 					<p className='mb-[0.5rem] text-[1.125rem]/[1.75rem]'>{t('mapDesc1')}</p>
 					<p className='text-[1.125rem]/[1.75rem] mb-[2.25rem]'>{t('mapDesc2')}</p>
-					<button className='bg-[#FA4D5C] cursor-pointer rounded-[1.6rem] text-white w-[13.19rem] h-[3.31rem]'>{t('download')}</button>
+					<button className='bg-[#FA4D5C] cursor-pointer rounded-[1.6rem] text-white w-[13.19rem] h-[3.31rem] lg:mb-0 md:mb-[2.63rem] mb-[2rem]'>{t('download')}</button>
 				</div>
-				<Image src={"/7ef39ce1a969e1a8cfaf6dc55a14ca12809b450d.jpg"} alt={""} width={565} height={354} className=' object-cover rounded-[1.5rem]'></Image>
+				<Image src={"/7ef39ce1a969e1a8cfaf6dc55a14ca12809b450d.jpg"} alt={""} width={565} height={354} className='object-cover rounded-[1.5rem] md:w-full lg:max-w-[35.31rem] md:max-h-[22.13rem]'></Image>
 			</div>
 		</section>
-		<section className="privileges py-[4rem] px-[7.5rem] md:w-full lg:max-w-[75rem] mx-auto lg:py-[4rem] lg:px-0">
-			<h2 className="text-[3rem]/[3.5rem] font-bold font-700">{t('privileges')}</h2>
-			<div className='flex mt-[2.25rem] justify-between'>
-				<div className='navigator max-w-[23.63rem]'>
+		<section className="privileges lg:py-[4rem] md:py-[3rem] py-[1.5rem] lg:px-0 md:px-[2rem] px-[1rem] w-full lg:max-w-[75rem] mx-auto">
+			<h2 className="lg:text-[3rem]/[3.5rem] md:text-[3rem]/[3.5rem] text-[1.5rem] font-bold font-700">{t('privileges')}</h2>
+			<div className='flex lg:flex-row md:flex-row flex-col mt-[2.25rem] justify-between'>
+				<div className='navigator lg:max-w-[23.63rem] md:max-w-[13.31rem]'>
 					<NavIcon />
-					<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] text-[1.5rem]/[2rem] font-bold font-700'>{t('nav')}</h4>
+					<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] lg:text-[1.5rem]/[2rem] md:text-[1.5rem]/[2rem] text-[1.25rem] font-bold font-700'>{t('nav')}</h4>
 					<p className='font-400 text-[#30303080] text-[1rem]/[1.5rem]'>{t('navDesc')}</p>
 				</div>
-				<div className='atHand max-w-[23.63rem]'>
+				<div className='atHand lg:max-w-[23.63rem] md:max-w-[13.31rem] lg:mt-0 md:mt-0 mt-[2.31rem]'>
 					<AtHandIcon />
-					<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] text-[1.5rem]/[2rem] font-bold font-700'>{t('atHand')}</h4>
+					<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] lg:text-[1.5rem]/[2rem] md:text-[1.5rem]/[2rem] text-[1.25rem] font-bold font-700'>{t('atHand')}</h4>
 					<p className='font-400 text-[#30303080] text-[1rem]/[1.5rem]'>{t('atHandDesc')}</p>
 				</div>
-				<div className='status max-w-[23.63rem]'>
+				<div className='status lg:max-w-[23.63rem] md:max-w-[13.31rem] lg:mt-0 md:mt-0 mt-[2.31rem]'>
 					<StatusIcon />
-					<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] text-[1.5rem]/[2rem] font-bold font-700'>{t('status')}</h4>
+					<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] lg:text-[1.5rem]/[2rem] md:text-[1.5rem]/[2rem] text-[1.25rem] font-bold font-700'>{t('status')}</h4>
 					<p className='font-400 text-[#30303080] text-[1rem]/[1.5rem]'>{t('statusDesc')}</p>
 				</div>
 			</div>
 		</section>
-		<section className="howToGet flex py-[4rem] px-[7.5rem] md:w-full lg:max-w-[75rem] mx-auto lg:py-[4rem] lg:px-0">
-			<Image src={"/e21bc55a9c01855711b45f3108ce255a7204f42a.png"} alt={""} width={471} height={334} className='rounded-[1.5rem] object-cover w-[29.44rem] h-[20.88rem]'></Image>
-			<div className='ml-[3.5rem]'>
-				<h2 className="mb-[2.25rem] text-[3rem]/[3.5rem] font-bold font-700">{t('howToGet')}</h2>
-				<div className='flex'>
+		<section className="howToGet flex lg:flex-row md:flex-col flex-col lg:py-[4rem] md:py-[3rem] py-[1.5rem] lg:px-0 md:px-[2rem] px-[1rem] w-full lg:max-w-[75rem] mx-auto">
+			<Image src={"/e21bc55a9c01855711b45f3108ce255a7204f42a.png"} alt={""} width={471} height={334} className='object-cover rounded-[1.5rem] md:w-full lg:max-w-[35.31rem] md:max-h-[22.13rem]'></Image>
+			<div className='lg:ml-[3.5rem]'>
+				<h2 className="mb-[2.25rem] lg:mt-0 mt-[2.63rem] lg:text-[3rem]/[3.5rem] md:text-[3rem]/[3.5rem] text-[1.5rem] font-bold font-700">{t('howToGet')}</h2>
+				<div className='flex lg:flex-row md:flex-row flex-col'>
 					<div className='download max-w-[20.5rem]'>
 						<MapIcon />
-						<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] text-[1.5rem]/[2rem] font-bold font-700'>{t('download2')}</h4>
+						<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] lg:text-[1.5rem]/[2rem] md:text-[1.5rem]/[2rem] text-[1.25rem] font-bold font-700'>{t('download2')}</h4>
 						<p className='font-400 text-[#30303080] text-[1rem]/[1.5rem]'>{t('downloadDesc')}</p>
 					</div>
-					<div className='inHotel max-w-[20.5rem]'>
+					<div className='inHotel max-w-[20.5rem] lg:mt-0 md:mt-0 mt-[1.5rem]'>
 						<HotelIcon />
-						<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] text-[1.5rem]/[2rem] font-bold font-700'>{t('inHotel')}</h4>
+						<h4 className='mb-[0.25rem] mt-[1rem] text-[#303030] lg:text-[1.5rem]/[2rem] md:text-[1.5rem]/[2rem] text-[1.25rem] font-bold font-700'>{t('inHotel')}</h4>
 						<p className='font-400 text-[#30303080] text-[1rem]/[1.5rem]'>{t('inHotelDesc')}</p>
 					</div>
 				</div>
 				<button className='mt-[2.25rem] bg-[#FA4D5C] text-white rounded-[1.5rem] w-[13.19rem] h-[3.31rem] cursor-pointer'>{t('download')}</button>
 			</div>
 		</section>
-		<section className="images flex justify-between pt-[4rem] px-[7.5rem] md:w-full lg:max-w-[75rem] mx-auto lg:pt-[4rem] lg:px-0">
-			<Image src={"/tourist-map1.png"} alt={""} width={364} height={226} className='object-cover w-[22.75rem] h-[14.13rem] rounded-[1.5rem]'></Image>
-			<Image src={"/tourist-map2.png"} alt={""} width={364} height={226} className='object-cover w-[22.75rem] h-[14.13rem] rounded-[1.5rem]'></Image>
-			<Image src={"/tourist-map3.png"} alt={""} width={364} height={226} className='object-cover w-[22.75rem] h-[14.13rem] rounded-[1.5rem]'></Image>
+		<section className="images md:overflow-x-auto overflow-x-auto flex lg:justify-between justify-start lg:gap-0 gap-4 lg:py-[4rem] md:py-[3rem] py-[1.5rem] lg:px-0 md:px-[2rem] px-[1rem] md:w-full lg:max-w-[75rem] mx-auto">
+			<Image src={"/tourist-map1.png"} alt={""} width={364} height={226} className='object-cover w-[22.75rem] h-[14.13rem] rounded-[1.5rem] flex-shrink-0'></Image>
+			<Image src={"/tourist-map2.png"} alt={""} width={364} height={226} className='object-cover w-[22.75rem] h-[14.13rem] rounded-[1.5rem] flex-shrink-0'></Image>
+			<Image src={"/tourist-map3.png"} alt={""} width={364} height={226} className='object-cover w-[22.75rem] h-[14.13rem] rounded-[1.5rem] flex-shrink-0'></Image>
 		</section>
 		<Footer />
 		</>

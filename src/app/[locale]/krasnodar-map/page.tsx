@@ -9,13 +9,14 @@ export default function Page() {
 	return (
 		<>
 			<Menu />
-			<section className="main container py-[4rem] px-[7.5rem] md:w-full max-w-[1440px] mx-auto">
-				<h1 className="text-[3rem] font-bold font-700">
+			<section className="main lg:py-[4rem] md:py-[3rem] py-[1.5rem] lg:px-[7.5rem] md:px-[2rem] px-[1rem] md:w-full max-w-[1440px] mx-auto">
+				<h1 className="lg:text-[3rem] md:text-[3rem] text-[1.5rem] font-bold font-700">
 					<span className='!important' style={{color: '#FA4D5C'}}>{t('krasnodarMap1')}</span> {t('krasnodarMap2')}
 				</h1>
-				<div className='mapSection flex mt-[2.25rem]'>
-					<div className="filters bg-white mr-[1.19rem] w-[16.56rem] h-[18.06rem] rounded-[1.5rem] p-[1.5rem]">
+				<div className='mapSection lg:flex-row flex-col flex mt-[2.25rem]'>
+					<div className="filters bg-white lg:mr-[1.19rem] lg:mb-0 mb-[2.63rem] lg:w-[16.56rem] lg:h-[18.06rem] w-full rounded-[1.5rem] p-[1.5rem]">
 						<legend className='font-700 font-bold text-[1.13rem] mb-[1.5rem]'>{t('objectsMap')}</legend>
+						<div className='flex lg:flex-col flex-col md:flex-row'>
 						<div role="button" className="flex w-full rounded-[0.25rem] p-0">
       						<label htmlFor="check-vertical-list-group" className="flex w-full cursor-pointer items-center mb-[1rem]">
         						<div className="inline-flex items-center">
@@ -64,7 +65,7 @@ export default function Page() {
     >
       <label
         htmlFor="check-vertical-list-group3"
-        className="flex w-full cursor-pointer items-center mb-[2.25rem]"
+        className="flex w-full cursor-pointer items-center lg:mb-[2.25rem] mb-[2.25rem] md:mb-[1rem]"
       >
         <div className="inline-flex items-center">
           <label className="flex items-center cursor-pointer relative" htmlFor="check-vertical-list-group3">
@@ -84,10 +85,11 @@ export default function Page() {
         </div>
       </label>
     </div>
+	</div>
 							<button type='submit' className='w-[13.56rem] h-[3.31rem] bg-[#FA4D5C] text-white rounded-[1.5rem] mx-auto cursor-pointer'>{t('filter')}</button>
 					</div>
 					<div className="map">
-						<Image src='/5e4f77128df521e2b4f2d32c4fa5d79449462601.png' width={916} height={564} alt='map' />
+						<Image src='/5e4f77128df521e2b4f2d32c4fa5d79449462601.png' width={916} height={564} alt='map' className=' min-h-[23.56rem] object-cover' />
 					</div>
 				</div>
 		</section>
