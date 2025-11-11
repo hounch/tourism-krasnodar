@@ -10,6 +10,7 @@ import Image from "next/image";
 import News from "../ui/news";
 import Link from 'next/link';
 import Carousel from '../ui/Carousel';
+import Footer from '../ui/Footer';
 
 export default function Main() {
 	const t = useTranslations('mainPage');
@@ -43,7 +44,7 @@ export default function Main() {
 				</div>
 			</section>
 
-			<section className="introContainer max-w-[1440px] md:w-full mt-[6rem] md:p-[2rem] justify-center items-center flex md:flex-col lg:flex-row flex-col mx-auto mb-[8rem]">
+			<section className="introContainer max-w-[1440px] md:w-full mt-[4rem] py-[4rem] px-[7.5rem] md:p-[2rem] justify-center items-center flex md:flex-col lg:flex-row flex-col mx-auto mb-[4rem]">
 				<div className="text w-[44.25rem] mr-[2.63rem]">
 					<h2 className="text-[3rem] font-bold mb-[2.25rem] text-[#303030]">{t('ticTitle')}</h2>
 					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription1')}</p>
@@ -51,7 +52,7 @@ export default function Main() {
 					<p className="text-[1.125rem] font-400 mb-[0.5rem]">{t('ticDescription3')}</p>
 					<p className="text-[1.125rem] font-400">{t('ticDescription4')}</p>
 				</div>
-				<div className="icons flex flex-col w-[28.13rem] md:w-full mt-[0.75rem] md:mt-[3.38rem]">
+				<div className="icons flex flex-col lg:w-[28.13rem] md:w-full mt-[0.75rem] md:mt-[3.38rem]">
 					<div className="group1 flex md:justify-center">
 						<Icon
 							img={<TravelIcon />}
@@ -107,7 +108,7 @@ export default function Main() {
 				</div>
 			</section>
 
-			<section className="news mx-auto max-w-[1440px] md:w-full text-[#303030] mt-[8rem] md:p-[2rem]">
+			<section className="news mx-auto max-w-[75rem] md:w-full text-[#303030] mt-[8rem] md:p-[2rem] lg:p-0">
 				<div className="flex items-center">
 					<h2 className="text-[3rem] font-bold">{t('newsTitle')}</h2>
 					<Link href="/info/news" className="bg-[#FA4D5C] text-[#FFFFFF] hover:bg-[#C4C4C4] transition-colors ml-auto rounded-[1.5rem] w-[9.19rem] h-[3.31rem] flex items-center justify-center cursor-pointer">{t('allNews')}</Link>
@@ -128,79 +129,25 @@ export default function Main() {
 				</div>
 			</section>
 
-			<section className="projects mx-auto max-w-[1440px] md:w-full text-[#303030] mt-[8rem] md:p-[2rem]">
+			<section className="projects mx-auto lg:max-w-[75rem] md:w-full text-[#303030] mt-[8rem] md:p-[2rem] lg:p-0">
 				<h2 className="text-[3rem] font-bold">{t('projectsTitle')}</h2>
 				<Link href="/tic-projects" className="block mt-[2.25rem] text-[#FFFFFF] hover:opacity-90 transition-opacity"><Banner title={t('projectName')} btn={t('learnAboutProject')} height="20.19rem" /></Link>
 			</section>
 
-			<section className="gosuslugi mx-auto max-w-[1440px] md:w-full md:p-[2rem] text-[#303030] mt-[8rem]">
-				<div className="flex justify-center">
+			<section className="gosuslugi mx-auto lg:max-w-[75rem] md:w-full md:p-[2rem] lg:p-0 text-[#303030] mt-[8rem]">
+				<div className="flex justify-between">
 					<Image src={"/Mini_app_gosuslugi_VK.jpg"} alt={""} width={551} height={273} className="mr-[2.81rem] md:w-[21.5rem] md:h-[22.75rem] lg:w-[34.43rem] lg:h-[17.06rem]" />
 					<Image src={"/banner-gov.jpg"} alt={""} width={604} height={273} className='md:w-[21.5rem] md:h-[22.75rem] lg:w-[34.43rem] lg:h-[17.06rem]' />
 				</div>
 			</section>
 
-			<section className="footer mx-auto max-w-full text-[#303030] mt-[8rem]">
-				<div className="flex mx-auto mb-[3rem] justify-between max-w-[75rem]">
-					<div className="w-[20rem] flex flex-col justify-between h-[11.94rem]">
-						<LogoIcon />
-						<p className="mt-[0.75rem] mb-[1rem] text-[1rem] text-[#30303080] font-400">{tFooter('description')}</p>
-						<Image src={"/image-2.jpg"} alt={""} width={142} height={63} />
-					</div>
-					<div className="w-[10.5rem] flex flex-col justify-between h-[8.25rem]">
-						<h6 className="text-[1.125rem] font-bold">+7 (861) 218-97-77</h6>
-						<h6 className="text-[1.125rem] font-bold">tic@krd.ru</h6>
-						<div className="flex w-[7.5rem] justify-between"><TgIcon /> <VkIcon /> <OkIcon /></div>
-					</div>
-					<div className="w-[10.125rem] flex flex-col justify-between h-[8.25rem]">
-						<Link href="/info/about" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('aboutKrasnodar')}</Link>
-						<Link href="/info/docs" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('documentation')}</Link>
-						<Link href="/info/news" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('newsLink')}</Link>
-						<Link href="/krasnodar-map" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('mapLink')}</Link>
-					</div>
-					<div className="w-[10.125rem] flex flex-col justify-between h-[8.25rem]">
-						<Link href="/excursions" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('excursionsLink')}</Link>
-						<Link href="/gastronomy" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('gastronomyLink')}</Link>
-						<Link href="/stay" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('whereToStayLink')}</Link>
-						<Link href="/tourist-map" className="text-[1.125rem] font-bold hover:text-[#FA4D5C] transition-colors">{tFooter('touristMapLink')}</Link>
-					</div>
-				</div>
-				<div className="h-[7.75rem] bg-[#FAFAFA] py-[2rem]">
-					<div className="max-w-[75rem] flex justify-between items-center mx-auto">
-						<p className="text-[0.875rem] text-[#30303080]">{tFooter('copyright')}</p>
-						<div className='flex flex-col'>
-							<Link href="/agreements/consent" className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataConsent')}</Link>
-							<Link href="/agreements/policy" className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataPolicy')}</Link>
-							<Link href="/agreements/terms" className="text-[0.875rem] text-[#30303080]">{tFooter('personalDataTerms')}</Link>
-						</div>
-					</div>
-				</div>
-			</section>
+			<Footer />
 		</>
 	);
 }
 
 // SVG Icons Components
-const TgIcon = () => (
-	<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<path d="M15 0.666504C6.90401 0.666504 0.333344 7.23717 0.333344 15.3332C0.333344 23.4292 6.90401 29.9998 15 29.9998C23.096 29.9998 29.6667 23.4292 29.6667 15.3332C29.6667 7.23717 23.096 0.666504 15 0.666504ZM21.8053 10.6398C21.5853 12.9572 20.632 18.5892 20.148 21.1852C19.9427 22.2852 19.532 22.6518 19.1507 22.6958C18.3 22.7692 17.6547 22.1385 16.8333 21.5958C15.5427 20.7452 14.8093 20.2172 13.5627 19.3958C12.1107 18.4425 13.0493 17.9145 13.8853 17.0638C14.1053 16.8438 17.86 13.4265 17.9333 13.1185C17.9435 13.0718 17.9421 13.0234 17.9293 12.9774C17.9167 12.9314 17.8928 12.8892 17.86 12.8545C17.772 12.7812 17.6547 12.8105 17.552 12.8252C17.42 12.8545 15.3667 14.2185 11.3627 16.9172C10.776 17.3132 10.248 17.5185 9.77868 17.5038C9.25068 17.4892 8.25334 17.2105 7.50534 16.9612C6.58134 16.6678 5.86268 16.5065 5.92134 15.9932C5.95068 15.7292 6.31734 15.4652 7.00668 15.1865C11.2893 13.3238 14.1347 12.0918 15.5573 11.5052C19.6347 9.80384 20.4707 9.5105 21.028 9.5105C21.1453 9.5105 21.424 9.53984 21.6 9.6865C21.7467 9.80384 21.7907 9.96517 21.8053 10.0825C21.7907 10.1705 21.82 10.4345 21.8053 10.6398Z" fill="#303030" />
-	</svg>
 
-);
-
-const VkIcon = () => (
-	<svg width="29" height="28" viewBox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<path d="M2.29331 1.96C0.333313 3.93867 0.333313 7.10267 0.333313 13.44V14.56C0.333313 20.888 0.333313 24.052 2.29331 26.04C4.27198 28 7.43598 28 13.7733 28H14.8933C21.2213 28 24.3853 28 26.3733 26.04C28.3333 24.0613 28.3333 20.8973 28.3333 14.56V13.44C28.3333 7.112 28.3333 3.948 26.3733 1.96C24.3946 -3.17891e-07 21.2306 0 14.8933 0H13.7733C7.44531 0 4.28131 -3.17891e-07 2.29331 1.96ZM5.05598 8.52133H8.26665C8.36931 13.86 10.7213 16.1187 12.588 16.5853V8.52133H15.6026V13.1227C17.4413 12.9267 19.3826 10.8267 20.036 8.512H23.0413C22.7961 9.71013 22.3065 10.8448 21.6032 11.8452C20.8998 12.8457 19.9977 13.6904 18.9533 14.3267C20.119 14.9067 21.1486 15.7273 21.974 16.7345C22.7993 17.7416 23.4017 18.9123 23.7413 20.1693H20.428C19.7186 17.9573 17.9453 16.24 15.6026 16.0067V20.1693H15.2293C8.84531 20.1693 5.20531 15.8013 5.05598 8.52133Z" fill="#303030" />
-	</svg>
-
-);
-
-const OkIcon = () => (
-	<svg width="32" height="31" viewBox="0 0 32 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-		<path d="M15.5152 7.62049C15.1411 7.60205 14.767 7.65865 14.4158 7.78687C14.0646 7.91507 13.7436 8.11223 13.4722 8.36634C13.2008 8.62047 12.9847 8.92624 12.837 9.26509C12.6894 9.60396 12.6132 9.96883 12.6132 10.3375C12.6132 10.7063 12.6894 11.0711 12.837 11.41C12.9847 11.7489 13.2008 12.0546 13.4722 12.3087C13.7436 12.5629 14.0646 12.76 14.4158 12.8882C14.767 13.0164 15.1411 13.073 15.5152 13.0546C15.8893 13.073 16.2633 13.0164 16.6144 12.8882C16.9657 12.76 17.2867 12.5629 17.5581 12.3087C17.8295 12.0546 18.0457 11.7489 18.1933 11.41C18.3409 11.0711 18.4172 10.7063 18.4172 10.3375C18.4172 9.96883 18.3409 9.60396 18.1933 9.26509C18.0457 8.92624 17.8295 8.62047 17.5581 8.36634C17.2867 8.11223 16.9657 7.91507 16.6144 7.78687C16.2633 7.65865 15.8893 7.60205 15.5152 7.62049ZM26.5974 0.45459H4.4329C1.98788 0.45459 0 2.4114 0 4.81823V26.6364C0 29.0432 1.98788 31 4.4329 31H26.5974C29.0425 31 31.0303 29.0432 31.0303 26.6364V4.81823C31.0303 2.4114 29.0425 0.45459 26.5974 0.45459ZM15.5152 4.8114C17.0041 4.8114 18.432 5.39363 19.4848 6.42998C20.5376 7.46633 21.129 8.87193 21.129 10.3375C21.129 11.8032 20.5376 13.2088 19.4848 14.2451C18.432 15.2815 17.0041 15.8638 15.5152 15.8638C14.0263 15.8638 12.5984 15.2815 11.5456 14.2451C10.4928 13.2088 9.90129 11.8032 9.90129 10.3375C9.90129 8.87193 10.4928 7.46633 11.5456 6.42998C12.5984 5.39363 14.0263 4.8114 15.5152 4.8114ZM19.6225 16.2864C20.7862 15.3864 21.6657 15.9115 21.9844 16.5318C22.5247 17.6227 21.9082 18.1478 20.4953 19.0546C19.3108 19.7977 17.6762 20.091 16.6026 20.2L17.503 21.0796L20.807 24.3318C22.0121 25.5523 20.0451 27.4546 18.826 26.2818C17.9948 25.4501 16.7827 24.2569 15.522 23.0159L12.2182 26.2818C10.9922 27.4546 9.03203 25.5318 10.2511 24.3318L11.1169 23.4796C11.8372 22.7705 12.6823 21.9318 13.555 21.0796L14.4485 20.2C13.3818 20.091 11.7264 19.8114 10.5281 19.0546C9.12208 18.1478 8.49871 17.6296 9.04589 16.5318C9.36451 15.9115 10.2442 15.3864 11.4078 16.2864C11.4078 16.2864 12.9801 17.5136 15.5152 17.5136C18.0502 17.5136 19.6225 16.2864 19.6225 16.2864Z" fill="#303030" />
-	</svg>
-
-);
 
 const LogoIcon = () => (
 	<svg

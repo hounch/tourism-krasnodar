@@ -109,7 +109,13 @@
 		"touristMap": "Tourist Map",
 		"ticProjects": "TIC Projects",
 		"events": "Events Calendar",
-		"krasnodarMap": "Krasnodar Map"
+		"krasnodarMap1": "Krasnodar",
+		"krasnodarMap2": "map",
+		"objectsMap": "Map objects",
+		"attractionsMap": "Attractions",
+		"whereToStayMap": "Where to stay",
+		"gastronomyMap": "Gastronomy",
+		"filter": "Apply filters"
 	},
 	"header": {
 		"phone": "+7 (861) 218-97-77",
@@ -165,7 +171,7 @@
 		"learnAboutProject": "Learn about the project"
 	},
 	"footerPage": {
-		"description": "Tourist Information Center of Krasnodar",
+		"description": "350000, Russia, Krasnodar, Gogol, 76. Tel.: +7 861 218-97-77; e mail: tic@krd.ru",
 		"aboutKrasnodar": "About Krasnodar",
 		"documentation": "Documentation",
 		"newsLink": "News",

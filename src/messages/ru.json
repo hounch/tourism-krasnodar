@@ -109,7 +109,13 @@
 		"touristMap": "Карта туриста",
 		"ticProjects": "Проекты ТИЦ",
 		"events": "Календарь событий",
-		"krasnodarMap": "Карта Краснодара"
+		"krasnodarMap1": "Карта",
+		"krasnodarMap2": "Краснодара",
+		"objectsMap": "Объекты на карте",
+		"attractionsMap": "Достопримечательности",
+		"whereToStayMap": "Где остановиться",
+		"gastronomyMap": "Гастрономия",
+		"filter": "Применить фильтры"
 	},
 	"header": {
 		"phone": "+7 (861) 218-97-77",
@@ -165,7 +171,7 @@
 		"learnAboutProject": "Познакомиться с проектом"
 	},
 	"footerPage": {
-		"description": "Туристско-информационный центр города Краснодара",
+		"description": "350000, Россия, г. Краснодар, Гоголя, 76. Тел.:+7 861 218-97-77; e mail: tic@krd.ru",
 		"aboutKrasnodar": "О Краснодаре",
 		"documentation": "Документация",
 		"newsLink": "Новости",

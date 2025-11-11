@@ -1,6 +1,13 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #FAFAFA;
   --foreground: #171717;
+}
+
+body {
+  @apply bg-[#FAFAFA];
 }

@@ -55,8 +55,8 @@ const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
 	return ( 
 		<>
 			<nav className="navbar">
-				<div className="mx-auto justify-between flex flex-row px-[1rem] py-[0.94rem] bg-white max-w-[1440px] md:w-full h-[6.63rem]">
-					<div className="logo my-auto">
+				<div className="bg-[#FAFAFA] mx-auto justify-between flex flex-row px-[1rem] py-[0.94rem] max-w-[1440px] md:w-full h-[6.63rem]">
+					<a href='/' className="logo my-auto">
 						<svg
 							width="206"
 							height="52"
@@ -165,11 +165,10 @@ const [isWhatToDoOpen, setIsWhatToDoOpen] = useState(false);
 								fill="#FA4D5C"
 							/>
 						</svg>
-					</div>
+					</a>
 					<div className="emblem flex flex-row items-center">
 						<Image src="/emblem.png" width={32} height={32} alt="Emblem" className="w-[2rem] h-[2rem] object-cover mr-[0.75rem]"/>
-						<p className="text-[0.88rem]">Туристско-информационный<br />
-центр города Краснодара</p>
+						<p className="text-[0.88rem] max-w-[11.94rem]">{p('ticTitle')}</p>
 					</div>
 						
 					<div className="nav-links flex flex-row items-center">
